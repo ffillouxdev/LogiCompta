@@ -1,0 +1,9 @@
+push button
+jcombobox
+label
+group box
+Line edit
+radio button
+check box
+list view 
+table vieww
