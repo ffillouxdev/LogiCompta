@@ -21,6 +21,8 @@ public:
 private slots:
     void on_discoButton_clicked();
 
+    void on_resetButton_clicked();
+
 private:
     Ui::MainPage *ui;
 };

@@ -7,6 +7,8 @@ MainPage::MainPage(QWidget *parent) :
     ui(new Ui::MainPage)
 {
     ui->setupUi(this);
+    setWindowTitle("LogiCompta");
+    QMainWindow::showMaximized();
 }
 
 MainPage::~MainPage()
@@ -16,7 +18,7 @@ MainPage::~MainPage()
 
 
 
-
+// Action when the button discoButton is clicked
 void MainPage::on_discoButton_clicked()
 {
     QMessageBox::StandardButton reply;
@@ -26,6 +28,19 @@ void MainPage::on_discoButton_clicked()
         this->hide();
         MainWindow *mainWindow = new  MainWindow();
         mainWindow->show();
+    }
+}
+
+// Action when the button resetButton is clicked
+void MainPage::on_resetButton_clicked()
+{
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,"ComptaPro","Are you sure to delete all of the data ?", QMessageBox::Yes |QMessageBox::No);
+    if(reply == QMessageBox::Yes)
+    {
+        // Drop all the data of the database with a commande and reset all element who interract with this data like counter
+
+
     }
 }
 

@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("LogiCompta");
+    QMainWindow::showMaximized();
+
 
     //placeholder for login LineEdit
     ui->usernameInput->setPlaceholderText("User Name");
