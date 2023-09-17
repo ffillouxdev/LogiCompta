@@ -12,13 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,19 +28,20 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QGridLayout *gridLayout;
-    QFrame *loginFrame;
-    QGridLayout *gridLayout_2;
-    QFrame *centerFrame;
-    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout;
+    QFrame *topframe;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *bienlabel;
     QLineEdit *usernameInput;
+    QFrame *passwordframe;
+    QVBoxLayout *verticalLayout_3;
     QLineEdit *passwordInput;
-    QPushButton *LoginButton;
-    QPushButton *CancelButton;
+    QFrame *loginframe;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *loginbutton;
+    QPushButton *cancelbutton;
     QMenuBar *menubar;
     QToolBar *toolBar;
-    QToolBar *toolBar_2;
-    QToolBar *toolBar_3;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -49,89 +51,129 @@ public:
         MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        centralwidget->setStyleSheet(QString::fromUtf8("#centralwidget{\n"
+        centralwidget->setStyleSheet(QString::fromUtf8("*{\n"
+"	font-family : Calibri;\n"
+"}\n"
+"\n"
+"#centralwidget{\n"
 "	background-image: url(:/res/6106991.jpg);\n"
 "}\n"
 "\n"
-"#centerFrame{\n"
-"	max-width:  500px;\n"
-"	margin: 0 auto;\n"
+"QLabel{\n"
+"	color: rgb(255, 255, 255);\n"
+"	text-align: center;\n"
 "}\n"
 "\n"
-"#Bienlabel{\n"
-"	color: #ffffff;\n"
-"  	text-align: center;\n"
-"  	font: 700 16px \"Inter\", sans-serif;\n"
-"}\n"
-"\n"
-"QLineEdit {\n"
-"	background: #ffffff;\n"
-"  	border-radius: 34px;\n"
-"  	position: relative;\n"
-"  	transform-origin: 0 0;\n"
-"  	transform: rotate(0deg) scale(1, 1);\n"
-"	padding-left : 10px;\n"
-" 	 height: 138px;\n"
-"}\n"
-"\n"
-"QPushButton  {\n"
-"	color: rgb(0, 0, 0);\n"
-"	border:  1px solid rgb(114, 114, 114);\n"
-"	background-color: rgb(217, 217, 217);\n"
-"	width : 100px;\n"
-"}\n"
-"\n"
-"#CancelButton{\n"
-"	max-width: 100px\n"
-"}\n"
-""));
-        gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setObjectName("gridLayout");
-        loginFrame = new QFrame(centralwidget);
-        loginFrame->setObjectName("loginFrame");
-        loginFrame->setFrameShape(QFrame::StyledPanel);
-        loginFrame->setFrameShadow(QFrame::Raised);
-        gridLayout_2 = new QGridLayout(loginFrame);
-        gridLayout_2->setObjectName("gridLayout_2");
-        centerFrame = new QFrame(loginFrame);
-        centerFrame->setObjectName("centerFrame");
-        centerFrame->setFrameShape(QFrame::StyledPanel);
-        centerFrame->setFrameShadow(QFrame::Raised);
-        groupBox = new QGroupBox(centerFrame);
-        groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(110, 310, 351, 231));
-        usernameInput = new QLineEdit(groupBox);
-        usernameInput->setObjectName("usernameInput");
-        usernameInput->setGeometry(QRect(40, 40, 271, 41));
+"QLineEdit{\n"
+"	background-color: #fff;\n"
+"	border-radius: 12px;\n"
+"}"));
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName("verticalLayout");
+        topframe = new QFrame(centralwidget);
+        topframe->setObjectName("topframe");
+        topframe->setMinimumSize(QSize(300, 100));
+        topframe->setMaximumSize(QSize(230, 300));
+        topframe->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"	padding : 5px;\n"
+"}"));
+        topframe->setFrameShape(QFrame::StyledPanel);
+        topframe->setFrameShadow(QFrame::Raised);
+        verticalLayout_2 = new QVBoxLayout(topframe);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        bienlabel = new QLabel(topframe);
+        bienlabel->setObjectName("bienlabel");
+        bienlabel->setMaximumSize(QSize(16777215, 50));
         QFont font;
         font.setFamilies({QString::fromUtf8("Calibri")});
-        font.setPointSize(13);
-        usernameInput->setFont(font);
-        usernameInput->setStyleSheet(QString::fromUtf8(""));
-        passwordInput = new QLineEdit(groupBox);
-        passwordInput->setObjectName("passwordInput");
-        passwordInput->setGeometry(QRect(40, 110, 271, 41));
-        passwordInput->setFont(font);
-        passwordInput->setStyleSheet(QString::fromUtf8(""));
-        LoginButton = new QPushButton(groupBox);
-        LoginButton->setObjectName("LoginButton");
-        LoginButton->setGeometry(QRect(60, 170, 102, 41));
+        font.setPointSize(14);
+        font.setBold(true);
+        bienlabel->setFont(font);
+        bienlabel->setLayoutDirection(Qt::LeftToRight);
+        bienlabel->setStyleSheet(QString::fromUtf8(""));
+        bienlabel->setMargin(35);
+
+        verticalLayout_2->addWidget(bienlabel);
+
+        usernameInput = new QLineEdit(topframe);
+        usernameInput->setObjectName("usernameInput");
+        usernameInput->setMinimumSize(QSize(280, 40));
+        usernameInput->setMaximumSize(QSize(210, 40));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Calibri")});
-        font1.setPointSize(12);
-        font1.setBold(true);
-        LoginButton->setFont(font1);
-        LoginButton->setStyleSheet(QString::fromUtf8(""));
-        CancelButton = new QPushButton(groupBox);
-        CancelButton->setObjectName("CancelButton");
-        CancelButton->setGeometry(QRect(190, 170, 102, 41));
-        CancelButton->setFont(font1);
-        CancelButton->setStyleSheet(QString::fromUtf8(""));
+        font1.setPointSize(11);
+        usernameInput->setFont(font1);
+        usernameInput->setMaxLength(30);
+        usernameInput->setFrame(true);
+        usernameInput->setEchoMode(QLineEdit::Normal);
 
-        gridLayout_2->addWidget(centerFrame, 0, 0, 1, 1);
+        verticalLayout_2->addWidget(usernameInput);
 
 
-        gridLayout->addWidget(loginFrame, 0, 0, 1, 1);
+        verticalLayout->addWidget(topframe, 0, Qt::AlignHCenter|Qt::AlignBottom);
+
+        passwordframe = new QFrame(centralwidget);
+        passwordframe->setObjectName("passwordframe");
+        passwordframe->setMinimumSize(QSize(300, 70));
+        passwordframe->setMaximumSize(QSize(230, 300));
+        passwordframe->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border: 2px solid #727272;\n"
+"	background-color: #D9D9D9;\n"
+"	color : #000;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: #727272;\n"
+"	color: #fff;\n"
+"	border: 2px solid #D9D9D9;\n"
+"}\n"
+"\n"
+"QLineEdit{\n"
+"	padding : 5px;\n"
+"}"));
+        passwordframe->setFrameShape(QFrame::StyledPanel);
+        passwordframe->setFrameShadow(QFrame::Raised);
+        verticalLayout_3 = new QVBoxLayout(passwordframe);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        passwordInput = new QLineEdit(passwordframe);
+        passwordInput->setObjectName("passwordInput");
+        passwordInput->setMinimumSize(QSize(280, 40));
+        passwordInput->setMaximumSize(QSize(210, 40));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Calibri")});
+        font2.setPointSize(12);
+        passwordInput->setFont(font2);
+        passwordInput->setEchoMode(QLineEdit::Password);
+
+        verticalLayout_3->addWidget(passwordInput);
+
+        loginframe = new QFrame(passwordframe);
+        loginframe->setObjectName("loginframe");
+        loginframe->setMinimumSize(QSize(280, 70));
+        loginframe->setMaximumSize(QSize(230, 70));
+        loginframe->setFrameShape(QFrame::StyledPanel);
+        loginframe->setFrameShadow(QFrame::Raised);
+        horizontalLayout = new QHBoxLayout(loginframe);
+        horizontalLayout->setObjectName("horizontalLayout");
+        loginbutton = new QPushButton(loginframe);
+        loginbutton->setObjectName("loginbutton");
+        loginbutton->setMinimumSize(QSize(100, 20));
+        loginbutton->setMaximumSize(QSize(80, 40));
+
+        horizontalLayout->addWidget(loginbutton);
+
+        cancelbutton = new QPushButton(loginframe);
+        cancelbutton->setObjectName("cancelbutton");
+        cancelbutton->setMinimumSize(QSize(100, 20));
+        cancelbutton->setMaximumSize(QSize(80, 40));
+
+        horizontalLayout->addWidget(cancelbutton);
+
+
+        verticalLayout_3->addWidget(loginframe);
+
+
+        verticalLayout->addWidget(passwordframe, 0, Qt::AlignHCenter|Qt::AlignTop);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -141,12 +183,6 @@ public:
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName("toolBar");
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
-        toolBar_2 = new QToolBar(MainWindow);
-        toolBar_2->setObjectName("toolBar_2");
-        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_2);
-        toolBar_3 = new QToolBar(MainWindow);
-        toolBar_3->setObjectName("toolBar_3");
-        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_3);
 
         retranslateUi(MainWindow);
 
@@ -156,14 +192,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Bienvenue sur LogiCompta", nullptr));
-        usernameInput->setText(QCoreApplication::translate("MainWindow", "User Name : ", nullptr));
-        passwordInput->setText(QCoreApplication::translate("MainWindow", "Password : ", nullptr));
-        LoginButton->setText(QCoreApplication::translate("MainWindow", "LOGIN", nullptr));
-        CancelButton->setText(QCoreApplication::translate("MainWindow", "Cancel", nullptr));
+        bienlabel->setText(QCoreApplication::translate("MainWindow", "Bienvenue sur LogiCompta", nullptr));
+        usernameInput->setInputMask(QString());
+        usernameInput->setText(QString());
+        passwordInput->setText(QString());
+        loginbutton->setText(QCoreApplication::translate("MainWindow", "LOGIN", nullptr));
+        cancelbutton->setText(QCoreApplication::translate("MainWindow", "Cancel", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
-        toolBar_2->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar_2", nullptr));
-        toolBar_3->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar_3", nullptr));
     } // retranslateUi
 
 };
