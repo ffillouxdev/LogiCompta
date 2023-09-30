@@ -3,7 +3,14 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QDialog>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
+//#include <QtSql>
+//#include <QtSqlDatabase>
 
+#include "addvaluedialog.h"
 
 
 namespace Ui {
@@ -22,6 +29,8 @@ private slots:
     void on_discoButton_clicked();
 
     void on_resetButton_clicked();
+
+    void on_addFactButton_clicked();
 
 private:
     Ui::MainPage *ui;

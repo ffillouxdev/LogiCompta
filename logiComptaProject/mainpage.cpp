@@ -44,3 +44,13 @@ void MainPage::on_resetButton_clicked()
     }
 }
 
+
+void MainPage::on_addFactButton_clicked()
+{
+    QDialog *dialog = new ADDvalueDialog();
+    //  With use Of Application Model You can access background controls
+
+    dialog->show();
+
+}
+
