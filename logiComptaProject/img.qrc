@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/res">
         <file>6106991.jpg</file>
+        <file>6106992.jpg</file>
+        <file>logo1.png</file>
+        <file>li.png</file>
+        <file>money.png</file>
+        <file>plus.png</file>
+        <file>rubriques.png</file>
+        <file>user.png</file>
     </qresource>
 </RCC>

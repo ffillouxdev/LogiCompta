@@ -2,6 +2,10 @@
 #include "mainwindow.h"
 #include "ui_mainpage.h"
 
+#include <iostream>
+using namespace std;
+
+
 MainPage::MainPage(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainPage)
@@ -9,6 +13,10 @@ MainPage::MainPage(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle("LogiCompta");
     QMainWindow::showMaximized();
+
+    //placeholder for LineEdit
+    ui->counter->setPlaceholderText("0.0");
+    ui->counter->setEnabled(false);
 }
 
 MainPage::~MainPage()
@@ -17,40 +25,36 @@ MainPage::~MainPage()
 }
 
 
-
+/*
 // Action when the button discoButton is clicked
 void MainPage::on_discoButton_clicked()
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"ComptaPro","Are you sure to disconnect ?", QMessageBox::Yes |QMessageBox::No);
-    if(reply == QMessageBox::Yes)
-    {
-        this->hide();
-        MainWindow *mainWindow = new  MainWindow();
-        mainWindow->show();
-    }
-}
 
-// Action when the button resetButton is clicked
-void MainPage::on_resetButton_clicked()
-{
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"ComptaPro","Are you sure to delete all of the data ?", QMessageBox::Yes |QMessageBox::No);
-    if(reply == QMessageBox::Yes)
-    {
-        // Drop all the data of the database with a commande and reset all element who interract with this data like counter
-
-
-    }
 }
 
 
-void MainPage::on_addFactButton_clicked()
+*/
+
+
+
+void MainPage::on_invoiceButton_clicked()
 {
-    QDialog *dialog = new ADDvalueDialog();
+    ADDvalueDialog *dialog = new ADDvalueDialog();
     //  With use Of Application Model You can access background controls
 
     dialog->show();
+}
 
+
+void MainPage::on_ProfilpushButton_clicked()
+{
+    // Open user profil popup
+    profilDialog *profil = new profilDialog();
+
+    // check and find the user name to put it in nameLabel
+
+
+
+    profil->show();
 }
 

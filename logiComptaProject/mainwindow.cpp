@@ -35,8 +35,6 @@ void MainWindow::on_loginbutton_clicked()
         this->hide();
         MainPage *mainpage = new  MainPage();
         mainpage->show();
-
-
     }
     else
     {

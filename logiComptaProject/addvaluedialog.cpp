@@ -1,8 +1,12 @@
 #include "addvaluedialog.h"
 #include "ui_addvaluedialog.h"
 
+
+//architecture hexagonale
 //AFFICHER LES CHOSES EN CONSOLE
 #include <iostream>
+
+using namespace std;
 
 ADDvalueDialog::ADDvalueDialog(QWidget *parent) :
     QDialog(parent),
@@ -30,10 +34,9 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
     QString prix = ui->prixLineEdit->text();
 
     // Afficher les valeurs
-    std::cout << "Date: " << date.toStdString() << std::endl;
-    std::cout << "Rubrique: " << rubrique.toStdString() << std::endl;
-    std::cout << "Prix: " << prix.toStdString() << std::endl;
-
+    cout << "Date: " << date.toStdString() << endl;
+    cout << "Rubrique: " << rubrique.toStdString() << endl;
+    cout << "Prix: " << prix.toStdString() << endl;
 
     this->close();
 }

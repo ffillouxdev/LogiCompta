@@ -11,6 +11,7 @@
 //#include <QtSqlDatabase>
 
 #include "addvaluedialog.h"
+#include "profildialog.h"
 
 
 namespace Ui {
@@ -26,11 +27,9 @@ public:
     ~MainPage();
 
 private slots:
-    void on_discoButton_clicked();
+    void on_invoiceButton_clicked();
 
-    void on_resetButton_clicked();
-
-    void on_addFactButton_clicked();
+    void on_ProfilpushButton_clicked();
 
 private:
     Ui::MainPage *ui;

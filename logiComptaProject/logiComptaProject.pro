@@ -12,17 +12,20 @@ SOURCES += \
     addvaluedialog.cpp \
     main.cpp \
     mainpage.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    profildialog.cpp
 
 HEADERS += \
     addvaluedialog.h \
     mainpage.h \
-    mainwindow.h
+    mainwindow.h \
+    profildialog.h
 
 FORMS += \
     addvaluedialog.ui \
     mainpage.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    profildialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -31,3 +34,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     img.qrc
+
+DISTFILES +=
