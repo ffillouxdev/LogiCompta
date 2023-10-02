@@ -13,6 +13,7 @@ ADDvalueDialog::ADDvalueDialog(QWidget *parent) :
     ui(new Ui::ADDvalueDialog)
 {
     ui->setupUi(this);
+    setWindowTitle("Add Values");
 }
 
 ADDvalueDialog::~ADDvalueDialog()

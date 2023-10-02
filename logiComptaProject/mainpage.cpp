@@ -1,8 +1,8 @@
 #include "mainpage.h"
-#include "mainwindow.h"
 #include "ui_mainpage.h"
 
 #include <iostream>
+#include <QDialog>
 using namespace std;
 
 
@@ -24,25 +24,10 @@ MainPage::~MainPage()
     delete ui;
 }
 
-
-/*
-// Action when the button discoButton is clicked
-void MainPage::on_discoButton_clicked()
-{
-
-}
-
-
-*/
-
-
-
 void MainPage::on_invoiceButton_clicked()
 {
-    ADDvalueDialog *dialog = new ADDvalueDialog();
-    //  With use Of Application Model You can access background controls
-
-    dialog->show();
+    ADDvalueDialog *value = new ADDvalueDialog();
+    value->show();
 }
 
 
@@ -53,8 +38,14 @@ void MainPage::on_ProfilpushButton_clicked()
 
     // check and find the user name to put it in nameLabel
 
-
-
     profil->show();
+}
+
+
+void MainPage::on_addRubButton_clicked()
+{
+    ADDrubriquesDialog *rubrique = new ADDrubriquesDialog();
+
+    rubrique->show();
 }
 
