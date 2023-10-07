@@ -7,8 +7,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
-//#include <QtSql>
-//#include <QtSqlDatabase>
+
 
 #include "addvaluedialog.h"
 #include "addrubriquesdialog.h"

@@ -11,6 +11,24 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("LogiCompta");
     QMainWindow::showMaximized();
 
+    // Database
+    qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setDatabaseName("ComptaLogiDB");
+    db.setHostName("127.0.0.1");
+    db.setUserName("root");
+    db.setPort(3306);
+    db.setPassword("");
+    if(db.open())
+    {
+        qDebug() << "Connected to MySQL!";
+    }
+    else
+    {
+        qDebug() << "Failed to connect to MySQL:" << db.lastError().text();
+    }
+
 
     //placeholder for login LineEdit
     ui->usernameInput->setPlaceholderText("User Name");

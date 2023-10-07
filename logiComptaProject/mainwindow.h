@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QtSql>
+#include <QtCore>
+#include <QDebug>
 
 #include "mainpage.h"
 
