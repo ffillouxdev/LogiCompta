@@ -1,0 +1,14 @@
+debug/addrubriquesdialog.o
+debug/addvaluedialog.o
+debug/login.o
+debug/main.o
+debug/mainpage.o
+debug/profildialog.o
+debug/register.o
+debug/qrc_img.o
+debug/moc_addrubriquesdialog.o
+debug/moc_addvaluedialog.o
+debug/moc_login.o
+debug/moc_mainpage.o
+debug/moc_profildialog.o
+debug/moc_register.o

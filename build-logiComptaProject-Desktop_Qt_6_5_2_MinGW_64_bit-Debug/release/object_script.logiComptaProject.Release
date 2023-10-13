@@ -1,0 +1,14 @@
+release/addrubriquesdialog.o
+release/addvaluedialog.o
+release/login.o
+release/main.o
+release/mainpage.o
+release/profildialog.o
+release/register.o
+release/qrc_img.o
+release/moc_addrubriquesdialog.o
+release/moc_addvaluedialog.o
+release/moc_login.o
+release/moc_mainpage.o
+release/moc_profildialog.o
+release/moc_register.o

@@ -13,14 +13,13 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -32,24 +31,38 @@ class Ui_MainPage
 public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout_2;
-    QFrame *frame;
-    QVBoxLayout *verticalLayout;
-    QFrame *frame_2;
+    QFrame *centralframe;
     QHBoxLayout *horizontalLayout;
-    QLineEdit *counterLineEdit;
-    QFrame *frame_3;
+    QFrame *leftFrame;
+    QVBoxLayout *verticalLayout;
+    QFrame *topFrame;
+    QListWidget *logoWidget;
+    QLabel *welcomeLabel;
+    QPushButton *pushButton;
+    QFrame *bottomFrame;
+    QLineEdit *counter;
+    QFrame *rightFrame;
+    QVBoxLayout *verticalLayout_3;
+    QFrame *topRightFrame;
     QHBoxLayout *horizontalLayout_2;
-    QFrame *frame_4;
-    QTableWidget *tableWidget;
-    QLabel *labellist;
-    QFrame *frame_6;
-    QPushButton *addFactButton;
-    QLabel *labelfact;
-    QFrame *frame_7;
-    QFrame *frame_5;
+    QFrame *firstRightFrame;
+    QPushButton *invoiceButton;
+    QLabel *invoiceLabel;
+    QFrame *secondRightFrame;
+    QPushButton *addRubButton;
+    QLabel *addRubLabel;
+    QFrame *thirdRightFrame;
+    QPushButton *ProfilpushButton;
+    QLabel *profilLabel;
+    QFrame *bottomRightFrame;
     QHBoxLayout *horizontalLayout_3;
-    QPushButton *resetButton;
-    QPushButton *discoButton;
+    QFrame *fourthRightFrame;
+    QPushButton *listInvoicesPushButton;
+    QLabel *listInvoicesLabel;
+    QFrame *fifthRightFrame;
+    QPushButton *listRubriquesPushButton;
+    QLabel *listRubriquesLabel;
+    QFrame *sixRightFrame;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -58,189 +71,281 @@ public:
     {
         if (MainPage->objectName().isEmpty())
             MainPage->setObjectName("MainPage");
-        MainPage->resize(1028, 712);
+        MainPage->resize(1171, 720);
         centralwidget = new QWidget(MainPage);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8("#centralwidget{\n"
-"	background-image: url(:/res/6106991.jpg);\n"
+"	background-image: url(:/res/6106992.jpg);\n"
 "}"));
         verticalLayout_2 = new QVBoxLayout(centralwidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        frame = new QFrame(centralwidget);
-        frame->setObjectName("frame");
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        verticalLayout = new QVBoxLayout(frame);
-        verticalLayout->setObjectName("verticalLayout");
-        frame_2 = new QFrame(frame);
-        frame_2->setObjectName("frame_2");
-        frame_2->setMinimumSize(QSize(0, 80));
-        frame_2->setMaximumSize(QSize(16777215, 100));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        horizontalLayout = new QHBoxLayout(frame_2);
+        centralframe = new QFrame(centralwidget);
+        centralframe->setObjectName("centralframe");
+        centralframe->setMinimumSize(QSize(100, 100));
+        centralframe->setMaximumSize(QSize(16777215, 10000000));
+        centralframe->setFrameShape(QFrame::StyledPanel);
+        centralframe->setFrameShadow(QFrame::Raised);
+        horizontalLayout = new QHBoxLayout(centralframe);
         horizontalLayout->setObjectName("horizontalLayout");
-        counterLineEdit = new QLineEdit(frame_2);
-        counterLineEdit->setObjectName("counterLineEdit");
-        counterLineEdit->setEnabled(false);
-        counterLineEdit->setMinimumSize(QSize(270, 70));
-        counterLineEdit->setMaximumSize(QSize(270, 70));
+        leftFrame = new QFrame(centralframe);
+        leftFrame->setObjectName("leftFrame");
+        leftFrame->setMaximumSize(QSize(312, 1712));
+        leftFrame->setFrameShape(QFrame::StyledPanel);
+        leftFrame->setFrameShadow(QFrame::Raised);
+        verticalLayout = new QVBoxLayout(leftFrame);
+        verticalLayout->setObjectName("verticalLayout");
+        topFrame = new QFrame(leftFrame);
+        topFrame->setObjectName("topFrame");
+        topFrame->setFrameShape(QFrame::StyledPanel);
+        topFrame->setFrameShadow(QFrame::Raised);
+        logoWidget = new QListWidget(topFrame);
+        logoWidget->setObjectName("logoWidget");
+        logoWidget->setGeometry(QRect(0, 10, 281, 192));
+        logoWidget->setStyleSheet(QString::fromUtf8("#logoWidget{\n"
+"	background: url(:/res/logo1.png) no-repeat center center fixed;\n"
+"	background-size : cover;\n"
+"}"));
+        welcomeLabel = new QLabel(topFrame);
+        welcomeLabel->setObjectName("welcomeLabel");
+        welcomeLabel->setGeometry(QRect(10, 210, 271, 31));
         QFont font;
         font.setFamilies({QString::fromUtf8("Calibri")});
-        font.setPointSize(22);
-        counterLineEdit->setFont(font);
-        counterLineEdit->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
-"	color: #000;\n"
-"	background-color: #fff;\n"
-"	border : 2px solid #D2D2D2;\n"
-"}"));
-        counterLineEdit->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout->addWidget(counterLineEdit);
-
-
-        verticalLayout->addWidget(frame_2, 0, Qt::AlignRight);
-
-        frame_3 = new QFrame(frame);
-        frame_3->setObjectName("frame_3");
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        horizontalLayout_2 = new QHBoxLayout(frame_3);
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        frame_4 = new QFrame(frame_3);
-        frame_4->setObjectName("frame_4");
-        frame_4->setMinimumSize(QSize(300, 450));
-        frame_4->setMaximumSize(QSize(300, 450));
-        frame_4->setFrameShape(QFrame::StyledPanel);
-        frame_4->setFrameShadow(QFrame::Raised);
-        tableWidget = new QTableWidget(frame_4);
-        tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(10, 10, 281, 431));
-        tableWidget->setStyleSheet(QString::fromUtf8("QTableWidget{\n"
-"	background-color : #fff;\n"
-"	border : 2px solid #D2D2D2;\n"
-"}"));
-        labellist = new QLabel(frame_4);
-        labellist->setObjectName("labellist");
-        labellist->setGeometry(QRect(20, 20, 261, 20));
+        font.setPointSize(16);
+        font.setBold(true);
+        welcomeLabel->setFont(font);
+        welcomeLabel->setLayoutDirection(Qt::LeftToRight);
+        welcomeLabel->setStyleSheet(QString::fromUtf8("#welcomeLabel {\n"
+"	color: rgb(0, 0, 127);	\n"
+"}\n"
+""));
+        welcomeLabel->setAlignment(Qt::AlignCenter);
+        pushButton = new QPushButton(topFrame);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(50, 240, 80, 24));
         QFont font1;
-        font1.setPointSize(11);
-        labellist->setFont(font1);
-        labellist->setStyleSheet(QString::fromUtf8("#labellist{\n"
-"	color: #000;\n"
+        font1.setPointSize(9);
+        pushButton->setFont(font1);
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	background-color: transparent;\n"
+"	color: rgb(120, 120, 120);\n"
+"	background : none;\n"
+"	border: none;\n"
 "}"));
-        labellist->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_2->addWidget(frame_4);
+        verticalLayout->addWidget(topFrame);
 
-        frame_6 = new QFrame(frame_3);
-        frame_6->setObjectName("frame_6");
-        frame_6->setMinimumSize(QSize(360, 450));
-        frame_6->setMaximumSize(QSize(360, 450));
+        bottomFrame = new QFrame(leftFrame);
+        bottomFrame->setObjectName("bottomFrame");
+        bottomFrame->setMinimumSize(QSize(0, 82));
+        bottomFrame->setFrameShape(QFrame::StyledPanel);
+        bottomFrame->setFrameShadow(QFrame::Raised);
+        counter = new QLineEdit(bottomFrame);
+        counter->setObjectName("counter");
+        counter->setGeometry(QRect(10, 10, 271, 61));
         QFont font2;
-        font2.setPointSize(12);
-        frame_6->setFont(font2);
-        frame_6->setFrameShape(QFrame::StyledPanel);
-        frame_6->setFrameShadow(QFrame::Raised);
-        addFactButton = new QPushButton(frame_6);
-        addFactButton->setObjectName("addFactButton");
-        addFactButton->setGeometry(QRect(60, 150, 230, 60));
-        addFactButton->setMinimumSize(QSize(230, 60));
-        addFactButton->setMaximumSize(QSize(230, 60));
+        font2.setFamilies({QString::fromUtf8("Calibri")});
+        font2.setPointSize(18);
+        counter->setFont(font2);
+        counter->setStyleSheet(QString::fromUtf8("#counter {\n"
+"	color: #000;\n"
+"	padding-right : 5px;\n"
+"}"));
+        counter->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        verticalLayout->addWidget(bottomFrame, 0, Qt::AlignBottom);
+
+
+        horizontalLayout->addWidget(leftFrame);
+
+        rightFrame = new QFrame(centralframe);
+        rightFrame->setObjectName("rightFrame");
+        rightFrame->setFrameShape(QFrame::StyledPanel);
+        rightFrame->setFrameShadow(QFrame::Raised);
+        verticalLayout_3 = new QVBoxLayout(rightFrame);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        topRightFrame = new QFrame(rightFrame);
+        topRightFrame->setObjectName("topRightFrame");
+        topRightFrame->setFrameShape(QFrame::StyledPanel);
+        topRightFrame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_2 = new QHBoxLayout(topRightFrame);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        firstRightFrame = new QFrame(topRightFrame);
+        firstRightFrame->setObjectName("firstRightFrame");
+        firstRightFrame->setFrameShape(QFrame::StyledPanel);
+        firstRightFrame->setFrameShadow(QFrame::Raised);
+        invoiceButton = new QPushButton(firstRightFrame);
+        invoiceButton->setObjectName("invoiceButton");
+        invoiceButton->setGeometry(QRect(30, 20, 191, 191));
+        invoiceButton->setStyleSheet(QString::fromUtf8("#invoiceButton{\n"
+"	background-color: transparent;\n"
+"	border-image: url(:/res/money.png) center;\n"
+"	background : none;\n"
+"	border: none;\n"
+"	background-repeat: none;\n"
+"}"));
+        invoiceLabel = new QLabel(firstRightFrame);
+        invoiceLabel->setObjectName("invoiceLabel");
+        invoiceLabel->setGeometry(QRect(50, 200, 151, 20));
         QFont font3;
         font3.setFamilies({QString::fromUtf8("Calibri")});
-        font3.setPointSize(12);
-        font3.setBold(true);
-        addFactButton->setFont(font3);
-        addFactButton->setStyleSheet(QString::fromUtf8("#addFactButton{\n"
+        font3.setPointSize(16);
+        invoiceLabel->setFont(font3);
+        invoiceLabel->setStyleSheet(QString::fromUtf8("#invoiceLabel {\n"
 "	color: #fff;\n"
-"	border : 1px solid #ff0000;\n"
-"	background-color: qlineargradient(spread:pad, x1:0.042, y1:0.215909, x2:0, y2:1, stop:0 			rgba(255, 22, 49, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}\n"
 "\n"
-"#addFactButton:hover{\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(255, 0, 53, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"    color: #ff0000;\n"
-"    cursor: pointer;\n"
-"}\n"
-"	"));
-        labelfact = new QLabel(frame_6);
-        labelfact->setObjectName("labelfact");
-        labelfact->setGeometry(QRect(60, 90, 230, 40));
-        labelfact->setMinimumSize(QSize(230, 40));
-        labelfact->setMaximumSize(QSize(230, 40));
-        QFont font4;
-        font4.setFamilies({QString::fromUtf8("Calibri")});
-        font4.setPointSize(14);
-        font4.setBold(true);
-        labelfact->setFont(font4);
-        labelfact->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"	color : #fff;\n"
-"}"));
-        labelfact->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_2->addWidget(frame_6);
-
-        frame_7 = new QFrame(frame_3);
-        frame_7->setObjectName("frame_7");
-        frame_7->setMinimumSize(QSize(300, 450));
-        frame_7->setMaximumSize(QSize(300, 450));
-        frame_7->setFrameShape(QFrame::StyledPanel);
-        frame_7->setFrameShadow(QFrame::Raised);
-
-        horizontalLayout_2->addWidget(frame_7);
-
-
-        verticalLayout->addWidget(frame_3);
-
-        frame_5 = new QFrame(frame);
-        frame_5->setObjectName("frame_5");
-        frame_5->setMinimumSize(QSize(400, 0));
-        frame_5->setMaximumSize(QSize(16777215, 16777215));
-        frame_5->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"	background-color: #fff;\n"
-"	height : 40px;\n"
+"#invoiceLabel:hover {\n"
 "	color: #000;\n"
-"	border-radius: 7px;\n"
+"}"));
+        invoiceLabel->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(firstRightFrame);
+
+        secondRightFrame = new QFrame(topRightFrame);
+        secondRightFrame->setObjectName("secondRightFrame");
+        secondRightFrame->setFrameShape(QFrame::StyledPanel);
+        secondRightFrame->setFrameShadow(QFrame::Raised);
+        addRubButton = new QPushButton(secondRightFrame);
+        addRubButton->setObjectName("addRubButton");
+        addRubButton->setGeometry(QRect(60, 30, 131, 141));
+        addRubButton->setStyleSheet(QString::fromUtf8("#addRubButton{\n"
+"	background-color: transparent;\n"
+"	border: none;\n"
+"	border-image: url(:/res/plus.png);\n"
+"	background-repeat: none;\n"
+"}"));
+        addRubLabel = new QLabel(secondRightFrame);
+        addRubLabel->setObjectName("addRubLabel");
+        addRubLabel->setGeometry(QRect(50, 200, 151, 20));
+        addRubLabel->setFont(font3);
+        addRubLabel->setStyleSheet(QString::fromUtf8("#addRubLabel {\n"
+"	color: #fff;\n"
 "}\n"
 "\n"
-"QPushButton:hover {\n"
-"    background-color: #000;\n"
-"    color: #fff;\n"
-"    cursor: pointer;\n"
+"#addRubLabel:hover {\n"
+"	color: #000;\n"
 "}"));
-        frame_5->setFrameShape(QFrame::StyledPanel);
-        frame_5->setFrameShadow(QFrame::Raised);
-        horizontalLayout_3 = new QHBoxLayout(frame_5);
+        addRubLabel->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(secondRightFrame);
+
+        thirdRightFrame = new QFrame(topRightFrame);
+        thirdRightFrame->setObjectName("thirdRightFrame");
+        thirdRightFrame->setFrameShape(QFrame::StyledPanel);
+        thirdRightFrame->setFrameShadow(QFrame::Raised);
+        ProfilpushButton = new QPushButton(thirdRightFrame);
+        ProfilpushButton->setObjectName("ProfilpushButton");
+        ProfilpushButton->setGeometry(QRect(60, 40, 141, 141));
+        ProfilpushButton->setStyleSheet(QString::fromUtf8("#ProfilpushButton{\n"
+"	background-color: transparent;\n"
+"	border-image: url(:/res/user.png);\n"
+"	background : none;\n"
+"	border: none;\n"
+"	background-repeat: none;\n"
+"}"));
+        profilLabel = new QLabel(thirdRightFrame);
+        profilLabel->setObjectName("profilLabel");
+        profilLabel->setGeometry(QRect(60, 200, 151, 20));
+        profilLabel->setFont(font3);
+        profilLabel->setStyleSheet(QString::fromUtf8("#profilLabel{\n"
+"	color: #fff;\n"
+"}\n"
+"\n"
+"#profilLabel:hover {\n"
+"	color: #000;\n"
+"}"));
+        profilLabel->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(thirdRightFrame);
+
+
+        verticalLayout_3->addWidget(topRightFrame);
+
+        bottomRightFrame = new QFrame(rightFrame);
+        bottomRightFrame->setObjectName("bottomRightFrame");
+        bottomRightFrame->setFrameShape(QFrame::StyledPanel);
+        bottomRightFrame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_3 = new QHBoxLayout(bottomRightFrame);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        resetButton = new QPushButton(frame_5);
-        resetButton->setObjectName("resetButton");
-        QFont font5;
-        font5.setFamilies({QString::fromUtf8("Calibri")});
-        font5.setPointSize(13);
-        font5.setBold(true);
-        resetButton->setFont(font5);
-        resetButton->setCursor(QCursor(Qt::PointingHandCursor));
+        fourthRightFrame = new QFrame(bottomRightFrame);
+        fourthRightFrame->setObjectName("fourthRightFrame");
+        fourthRightFrame->setFrameShape(QFrame::StyledPanel);
+        fourthRightFrame->setFrameShadow(QFrame::Raised);
+        listInvoicesPushButton = new QPushButton(fourthRightFrame);
+        listInvoicesPushButton->setObjectName("listInvoicesPushButton");
+        listInvoicesPushButton->setGeometry(QRect(50, 30, 151, 151));
+        listInvoicesPushButton->setStyleSheet(QString::fromUtf8("#listInvoicesPushButton {\n"
+"	background-color: transparent;\n"
+"	background : none;\n"
+"	border-image: url(:/res/li.png);\n"
+"	border: none;\n"
+"	background-repeat: none;\n"
+"}"));
+        listInvoicesLabel = new QLabel(fourthRightFrame);
+        listInvoicesLabel->setObjectName("listInvoicesLabel");
+        listInvoicesLabel->setGeometry(QRect(50, 190, 151, 20));
+        listInvoicesLabel->setFont(font3);
+        listInvoicesLabel->setStyleSheet(QString::fromUtf8("#listInvoicesLabel {\n"
+"	color: #fff;\n"
+"}\n"
+"\n"
+"#listInvoicesLabel:hover {\n"
+"	color: #000;\n"
+"}"));
+        listInvoicesLabel->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_3->addWidget(resetButton);
+        horizontalLayout_3->addWidget(fourthRightFrame);
 
-        discoButton = new QPushButton(frame_5);
-        discoButton->setObjectName("discoButton");
-        discoButton->setFont(font5);
+        fifthRightFrame = new QFrame(bottomRightFrame);
+        fifthRightFrame->setObjectName("fifthRightFrame");
+        fifthRightFrame->setFrameShape(QFrame::StyledPanel);
+        fifthRightFrame->setFrameShadow(QFrame::Raised);
+        listRubriquesPushButton = new QPushButton(fifthRightFrame);
+        listRubriquesPushButton->setObjectName("listRubriquesPushButton");
+        listRubriquesPushButton->setGeometry(QRect(20, 30, 201, 171));
+        listRubriquesPushButton->setStyleSheet(QString::fromUtf8("#listRubriquesPushButton{\n"
+"	background-color: transparent;\n"
+"	background : none;\n"
+"	\n"
+"	border-image: url(:/res/rubriques.png);\n"
+"	border: none;\n"
+"	background-repeat: none;\n"
+"}"));
+        listRubriquesLabel = new QLabel(fifthRightFrame);
+        listRubriquesLabel->setObjectName("listRubriquesLabel");
+        listRubriquesLabel->setGeometry(QRect(50, 190, 161, 20));
+        listRubriquesLabel->setFont(font3);
+        listRubriquesLabel->setStyleSheet(QString::fromUtf8("#listRubriquesLabel {\n"
+"	color: #fff;\n"
+"}\n"
+"\n"
+"#listRubriquesLabel:hover {\n"
+"	color: #000;\n"
+"}"));
+        listRubriquesLabel->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_3->addWidget(discoButton);
+        horizontalLayout_3->addWidget(fifthRightFrame);
+
+        sixRightFrame = new QFrame(bottomRightFrame);
+        sixRightFrame->setObjectName("sixRightFrame");
+        sixRightFrame->setFrameShape(QFrame::StyledPanel);
+        sixRightFrame->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_3->addWidget(sixRightFrame);
 
 
-        verticalLayout->addWidget(frame_5, 0, Qt::AlignHCenter);
+        verticalLayout_3->addWidget(bottomRightFrame);
 
 
-        verticalLayout_2->addWidget(frame);
+        horizontalLayout->addWidget(rightFrame);
+
+
+        verticalLayout_2->addWidget(centralframe);
 
         MainPage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1028, 21));
+        menubar->setGeometry(QRect(0, 0, 1171, 21));
         MainPage->setMenuBar(menubar);
         statusbar = new QStatusBar(MainPage);
         statusbar->setObjectName("statusbar");
@@ -257,12 +362,18 @@ public:
     void retranslateUi(QMainWindow *MainPage)
     {
         MainPage->setWindowTitle(QCoreApplication::translate("MainPage", "MainWindow", nullptr));
-        counterLineEdit->setText(QCoreApplication::translate("MainPage", "0.0", nullptr));
-        labellist->setText(QCoreApplication::translate("MainPage", " Liste de toutes les d\303\251penses", nullptr));
-        addFactButton->setText(QCoreApplication::translate("MainPage", "ADD new value", nullptr));
-        labelfact->setText(QCoreApplication::translate("MainPage", "Ajoutez une facture", nullptr));
-        resetButton->setText(QCoreApplication::translate("MainPage", "Reset Values", nullptr));
-        discoButton->setText(QCoreApplication::translate("MainPage", "Disconnect", nullptr));
+        welcomeLabel->setText(QCoreApplication::translate("MainPage", "Welcome to LogiCompta", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainPage", "who are us ?", nullptr));
+        invoiceButton->setText(QString());
+        invoiceLabel->setText(QCoreApplication::translate("MainPage", "add a invoice", nullptr));
+        addRubButton->setText(QString());
+        addRubLabel->setText(QCoreApplication::translate("MainPage", "add a rubrique", nullptr));
+        ProfilpushButton->setText(QString());
+        profilLabel->setText(QCoreApplication::translate("MainPage", "Profil", nullptr));
+        listInvoicesPushButton->setText(QString());
+        listInvoicesLabel->setText(QCoreApplication::translate("MainPage", "list of all invoices", nullptr));
+        listRubriquesPushButton->setText(QString());
+        listRubriquesLabel->setText(QCoreApplication::translate("MainPage", "list of all rubriques", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainPage", "toolBar", nullptr));
     } // retranslateUi
 

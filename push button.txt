@@ -1,3 +1,19 @@
+refaire bouton login, faire bouton 'enter' pour le login, refaire le design dégueulasse que je fais dans le main, les dialogs sont parfaites
+add new rubriques pour add popup et pour la section liste des rubriques 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 push button
 jcombobox
 label
@@ -7,3 +23,7 @@ radio button
 check box
 list view 
 table vieww
+
+
+CE Qu'il y a a faire d'important, creer base de données pour ajouter les valeurs, lire les valeurs dans le tableau, lister les rubriques et leurs composants et si besoin drop la bdd
+

@@ -11,24 +11,27 @@ CONFIG += c++17
 SOURCES += \
     addrubriquesdialog.cpp \
     addvaluedialog.cpp \
+    login.cpp \
     main.cpp \
     mainpage.cpp \
-    mainwindow.cpp \
-    profildialog.cpp
+    profildialog.cpp \
+    register.cpp
 
 HEADERS += \
     addrubriquesdialog.h \
     addvaluedialog.h \
+    login.h \
     mainpage.h \
-    mainwindow.h \
-    profildialog.h
+    profildialog.h \
+    register.h
 
 FORMS += \
     addrubriquesdialog.ui \
     addvaluedialog.ui \
+    login.ui \
     mainpage.ui \
-    mainwindow.ui \
-    profildialog.ui
+    profildialog.ui \
+    register.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

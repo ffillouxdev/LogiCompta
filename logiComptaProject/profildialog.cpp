@@ -1,6 +1,6 @@
 #include "profildialog.h"
 #include "ui_profildialog.h"
-#include "mainwindow.h"
+#include "login.h"
 
 
 #include <QMessageBox>
@@ -39,8 +39,8 @@ void profilDialog::on_discoButton_clicked()
     if(reply == QMessageBox::Yes)
     {
         this->hide();
-        MainWindow *mainWindow = new  MainWindow();
-        mainWindow->show();
+        Login *login = new Login();
+        login->show();
     }
 }
 
