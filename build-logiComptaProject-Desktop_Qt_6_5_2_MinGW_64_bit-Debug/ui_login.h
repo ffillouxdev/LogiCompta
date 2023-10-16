@@ -24,7 +24,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_Login
 {
 public:
     QWidget *centralwidget;
@@ -44,13 +44,13 @@ public:
     QMenuBar *menubar;
     QToolBar *toolBar;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *Login)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(843, 660);
-        MainWindow->setStyleSheet(QString::fromUtf8(""));
-        centralwidget = new QWidget(MainWindow);
+        if (Login->objectName().isEmpty())
+            Login->setObjectName("Login");
+        Login->resize(843, 660);
+        Login->setStyleSheet(QString::fromUtf8(""));
+        centralwidget = new QWidget(Login);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8("*{\n"
 "	font-family : Calibri;\n"
@@ -187,37 +187,37 @@ public:
 
         verticalLayout->addWidget(passwordframe, 0, Qt::AlignHCenter|Qt::AlignTop);
 
-        MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
+        Login->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(Login);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 843, 21));
-        MainWindow->setMenuBar(menubar);
-        toolBar = new QToolBar(MainWindow);
+        Login->setMenuBar(menubar);
+        toolBar = new QToolBar(Login);
         toolBar->setObjectName("toolBar");
-        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+        Login->addToolBar(Qt::TopToolBarArea, toolBar);
 
-        retranslateUi(MainWindow);
+        retranslateUi(Login);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(Login);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *Login)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        bienlabel->setText(QCoreApplication::translate("MainWindow", "Bienvenue sur LogiCompta", nullptr));
+        Login->setWindowTitle(QCoreApplication::translate("Login", "MainWindow", nullptr));
+        bienlabel->setText(QCoreApplication::translate("Login", "Bienvenue sur LogiCompta", nullptr));
         usernameInput->setInputMask(QString());
         usernameInput->setText(QString());
         passwordInput->setText(QString());
-        registerButton->setText(QCoreApplication::translate("MainWindow", "pas encore de compte ? inscrivez-vous !", nullptr));
-        loginbutton->setText(QCoreApplication::translate("MainWindow", "LOGIN", nullptr));
-        cancelbutton->setText(QCoreApplication::translate("MainWindow", "Cancel", nullptr));
-        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
+        registerButton->setText(QCoreApplication::translate("Login", "pas encore de compte ? inscrivez-vous !", nullptr));
+        loginbutton->setText(QCoreApplication::translate("Login", "LOGIN", nullptr));
+        cancelbutton->setText(QCoreApplication::translate("Login", "Cancel", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("Login", "toolBar", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class Login: public Ui_Login {};
 } // namespace Ui
 
 QT_END_NAMESPACE

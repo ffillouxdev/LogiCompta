@@ -19,12 +19,13 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_Register
 {
 public:
     QWidget *centralwidget;
@@ -44,13 +45,14 @@ public:
     QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
+    QToolBar *toolBar;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *Register)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1180, 800);
-        centralwidget = new QWidget(MainWindow);
+        if (Register->objectName().isEmpty())
+            Register->setObjectName("Register");
+        Register->resize(1180, 800);
+        centralwidget = new QWidget(Register);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setStyleSheet(QString::fromUtf8("*{\n"
 "	font-family : Calibri;\n"
@@ -145,35 +147,39 @@ public:
 
         verticalLayout->addWidget(frame_2);
 
-        MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
+        Register->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(Register);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1180, 21));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
+        Register->setMenuBar(menubar);
+        statusbar = new QStatusBar(Register);
         statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
+        Register->setStatusBar(statusbar);
+        toolBar = new QToolBar(Register);
+        toolBar->setObjectName("toolBar");
+        Register->addToolBar(Qt::TopToolBarArea, toolBar);
 
-        retranslateUi(MainWindow);
+        retranslateUi(Register);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(Register);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *Register)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "User name * ", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "Your Email *", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "password *  ", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "Confirm password *", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Cancel", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Confirm", nullptr));
+        Register->setWindowTitle(QCoreApplication::translate("Register", "MainWindow", nullptr));
+        label->setText(QCoreApplication::translate("Register", "User name * ", nullptr));
+        label_4->setText(QCoreApplication::translate("Register", "Your Email *", nullptr));
+        label_2->setText(QCoreApplication::translate("Register", "password *  ", nullptr));
+        label_3->setText(QCoreApplication::translate("Register", "Confirm password *", nullptr));
+        pushButton->setText(QCoreApplication::translate("Register", "Cancel", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("Register", "Confirm", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("Register", "toolBar", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class Register: public Ui_Register {};
 } // namespace Ui
 
 QT_END_NAMESPACE
