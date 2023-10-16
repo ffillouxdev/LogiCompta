@@ -8,6 +8,7 @@
 #include <QDebug>
 
 #include "mainpage.h"
+#include "registration.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -23,7 +24,7 @@ public:
 private slots:
     void on_loginbutton_clicked();
     void on_cancelbutton_clicked();
-    void on_registerButton_clicked();
+    void on_registrationButton_clicked();
 
 private:
     Ui::Login *ui;

@@ -199,7 +199,7 @@ QLineEdit{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="registerButton">
+        <widget class="QPushButton" name="registrationButton">
          <property name="styleSheet">
           <string notr="true">QPushButton {
 	color: #fff;

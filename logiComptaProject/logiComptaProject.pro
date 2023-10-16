@@ -15,7 +15,7 @@ SOURCES += \
     main.cpp \
     mainpage.cpp \
     profildialog.cpp \
-    register.cpp
+    registration.cpp
 
 HEADERS += \
     addrubriquesdialog.h \
@@ -23,7 +23,7 @@ HEADERS += \
     login.h \
     mainpage.h \
     profildialog.h \
-    register.h
+    registration.h
 
 FORMS += \
     addrubriquesdialog.ui \
@@ -31,7 +31,7 @@ FORMS += \
     login.ui \
     mainpage.ui \
     profildialog.ui \
-    register.ui
+    registration.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
