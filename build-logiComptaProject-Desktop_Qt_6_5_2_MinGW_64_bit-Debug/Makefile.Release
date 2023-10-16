@@ -2164,6 +2164,9 @@ release/login.o: ../logiComptaProject/login.cpp ../logiComptaProject/login.h \
 <<<<<<< HEAD
 =======
 		../logiComptaProject/register.h \
+<<<<<<< HEAD
+>>>>>>> 9df827a733193e53a3a549b8cc814b94a967b591
+=======
 >>>>>>> 9df827a733193e53a3a549b8cc814b94a967b591
 		ui_login.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
@@ -3360,8 +3363,11 @@ release/register.o: ../logiComptaProject/register.cpp ../logiComptaProject/regis
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStatusBar \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstatusbar.h \
 <<<<<<< HEAD
+<<<<<<< HEAD
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QToolBar \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qtoolbar.h \
+=======
+>>>>>>> 9df827a733193e53a3a549b8cc814b94a967b591
 =======
 >>>>>>> 9df827a733193e53a3a549b8cc814b94a967b591
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QVBoxLayout \
