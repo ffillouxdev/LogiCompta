@@ -2161,6 +2161,10 @@ release/login.o: ../logiComptaProject/login.cpp ../logiComptaProject/login.h \
 		../logiComptaProject/addvaluedialog.h \
 		../logiComptaProject/addrubriquesdialog.h \
 		../logiComptaProject/profildialog.h \
+<<<<<<< HEAD
+=======
+		../logiComptaProject/register.h \
+>>>>>>> 9df827a733193e53a3a549b8cc814b94a967b591
 		ui_login.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
@@ -3355,8 +3359,11 @@ release/register.o: ../logiComptaProject/register.cpp ../logiComptaProject/regis
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QStatusBar \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qstatusbar.h \
+<<<<<<< HEAD
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QToolBar \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qtoolbar.h \
+=======
+>>>>>>> 9df827a733193e53a3a549b8cc814b94a967b591
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\register.o ..\logiComptaProject\register.cpp
