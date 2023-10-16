@@ -8,6 +8,7 @@ namespace Ui {
 class Register;
 }
 
+
 class Register : public QMainWindow
 {
     Q_OBJECT

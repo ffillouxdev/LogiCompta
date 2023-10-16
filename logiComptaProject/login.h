@@ -8,28 +8,25 @@
 #include <QDebug>
 
 #include "mainpage.h"
-#include "register.h"
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
 QT_END_NAMESPACE
 
-class Login : public QMainWindow
+class Login : public QMainWindow {
     Q_OBJECT
 
 public:
-    Login(QWidget *parent = nullptr);
+    explicit Login(QWidget *parent = nullptr);
     ~Login();
 
 private slots:
     void on_loginbutton_clicked();
-
     void on_cancelbutton_clicked();
-
     void on_registerButton_clicked();
 
 private:
     Ui::Login *ui;
 };
+
 #endif // LOGIN_H
