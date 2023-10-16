@@ -16,3 +16,18 @@ Registration::~Registration()
 {
     delete ui;
 }
+
+void Registration::on_CancelButton_clicked()
+{
+    this->hide();
+    Login *login = new Login();
+    login->show();
+}
+
+
+void Registration::on_confirmButton_clicked()
+{
+    // create a new LogiCompta User in the DB
+
+}
+

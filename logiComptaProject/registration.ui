@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1180</width>
-    <height>800</height>
+    <width>804</width>
+    <height>659</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,161 +33,232 @@ QLineEdit{
 	border-radius: 12px;
 }</string>
    </property>
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>130</y>
-      <width>270</width>
-      <height>300</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>270</width>
-      <height>300</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>270</width>
-      <height>500</height>
-     </size>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>User name * </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Your Email *</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_4">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>password *  </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_2">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Confirm password *</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_3">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QFrame" name="frame_2">
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>Cancel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="text">
-           <string>Confirm</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QFrame" name="registrationFormFrame">
+      <property name="minimumSize">
+       <size>
+        <width>270</width>
+        <height>300</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>270</width>
+        <height>400</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">*{
+	font-family : Calibri;
+}
+
+QLabel{
+	color: rgb(255, 255, 255);
+	text-align: center;
+}
+
+QLineEdit{
+	background-color: #fff;
+	border-radius: 12px;
+	padding : 5px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="userNameLabel">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>User name * </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="userNameLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="emailLabel">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Your Email *</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_4">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="passwordLabel">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>password *  </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="passwordLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="confirmPassLabel">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Confirm password *</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="confirmPassLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="confirmFrame">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	border: 2px solid #727272;
+	background-color: #D9D9D9;
+	color : #000;
+}
+
+QPushButton:hover {
+	background-color: #727272;
+	color: #fff;
+	border: 2px solid #D9D9D9;
+}
+
+QLineEdit{
+	padding : 5px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="CancelButton">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Cancel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="confirmButton">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Confirm</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1180</width>
+     <width>804</width>
      <height>21</height>
     </rect>
    </property>
@@ -196,6 +267,17 @@ QLineEdit{
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
