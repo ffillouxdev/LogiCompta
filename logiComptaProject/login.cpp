@@ -11,8 +11,9 @@ Login::Login(QWidget *parent):
     ui->setupUi(this);
     setWindowTitle("LogiCompta");
     QMainWindow::showMaximized();
+    reelconnexionDB();
 
-    //placeholder for login LineEdit
+        //placeholder for login LineEdit
     ui->usernameInput->setPlaceholderText("User Name");
     ui->passwordInput->setPlaceholderText("Password");
 }
@@ -28,6 +29,8 @@ void Login::on_loginbutton_clicked()
     // Variables to recup the value of the QLineEdit UserName and Password
     QString UserName = ui->usernameInput->text();
     QString Password = ui->passwordInput->text();
+
+    reelconnexionDB.open();
 
     if (UserName == "ComptaPro" && Password == "AZERTY")
     {

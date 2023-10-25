@@ -1,7 +1,8 @@
 #ifndef REGISTRATION_H
 #define REGISTRATION_H
 
-#include "login.h"
+#include "connexion_mysql.h"
+
 
 #include <QMainWindow>
 

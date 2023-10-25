@@ -3,12 +3,8 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-/*#include <QtSql>
-#include <QtCore>*/
-#include <QDebug>
-#include <QSqlDatabase>
 
-
+#include "connexion_mysql.h"
 #include "mainpage.h"
 #include "registration.h"
 
