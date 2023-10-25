@@ -3,9 +3,11 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include <QtSql>
-#include <QtCore>
+/*#include <QtSql>
+#include <QtCore>*/
 #include <QDebug>
+#include <QSqlDatabase>
+
 
 #include "mainpage.h"
 #include "registration.h"

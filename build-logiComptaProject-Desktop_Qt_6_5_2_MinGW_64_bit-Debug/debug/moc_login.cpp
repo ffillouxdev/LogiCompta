@@ -43,7 +43,7 @@ static constexpr auto qt_meta_stringdata_CLASSLoginENDCLASS = QtMocHelpers::stri
     "on_loginbutton_clicked",
     "",
     "on_cancelbutton_clicked",
-    "on_registerButton_clicked"
+    "on_registrationButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSLoginENDCLASS_t {
@@ -52,7 +52,7 @@ struct qt_meta_stringdata_CLASSLoginENDCLASS_t {
     char stringdata1[23];
     char stringdata2[1];
     char stringdata3[24];
-    char stringdata4[26];
+    char stringdata4[30];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSLoginENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -62,13 +62,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSLoginENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(6, 22),  // "on_loginbutton_clicked"
         QT_MOC_LITERAL(29, 0),  // ""
         QT_MOC_LITERAL(30, 23),  // "on_cancelbutton_clicked"
-        QT_MOC_LITERAL(54, 25)   // "on_registerButton_clicked"
+        QT_MOC_LITERAL(54, 29)   // "on_registrationButton_clicked"
     },
     "Login",
     "on_loginbutton_clicked",
     "",
     "on_cancelbutton_clicked",
-    "on_registerButton_clicked"
+    "on_registrationButton_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -113,7 +113,7 @@ Q_CONSTINIT const QMetaObject Login::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_cancelbutton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_registerButton_clicked'
+        // method 'on_registrationButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -127,7 +127,7 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         switch (_id) {
         case 0: _t->on_loginbutton_clicked(); break;
         case 1: _t->on_cancelbutton_clicked(); break;
-        case 2: _t->on_registerButton_clicked(); break;
+        case 2: _t->on_registrationButton_clicked(); break;
         default: ;
         }
     }

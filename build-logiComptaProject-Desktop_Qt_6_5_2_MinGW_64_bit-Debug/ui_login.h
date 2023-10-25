@@ -36,13 +36,14 @@ public:
     QFrame *passwordframe;
     QVBoxLayout *verticalLayout_3;
     QLineEdit *passwordInput;
-    QPushButton *registerButton;
+    QPushButton *registrationButton;
     QFrame *loginframe;
     QHBoxLayout *horizontalLayout;
     QPushButton *loginbutton;
     QPushButton *cancelbutton;
     QMenuBar *menubar;
     QToolBar *toolBar;
+    QToolBar *toolBar_2;
 
     void setupUi(QMainWindow *Login)
     {
@@ -148,16 +149,22 @@ public:
 
         verticalLayout_3->addWidget(passwordInput);
 
-        registerButton = new QPushButton(passwordframe);
-        registerButton->setObjectName("registerButton");
-        registerButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        registrationButton = new QPushButton(passwordframe);
+        registrationButton->setObjectName("registrationButton");
+        registrationButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	color: #fff;\n"
 "	background : none;\n"
 "	border: none;\n"
 "	background-repeat: none;\n"
-"}"));
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	\n"
+"	color: rgb(0, 0, 255);\n"
+"}\n"
+""));
 
-        verticalLayout_3->addWidget(registerButton);
+        verticalLayout_3->addWidget(registrationButton);
 
         loginframe = new QFrame(passwordframe);
         loginframe->setObjectName("loginframe");
@@ -195,6 +202,9 @@ public:
         toolBar = new QToolBar(Login);
         toolBar->setObjectName("toolBar");
         Login->addToolBar(Qt::TopToolBarArea, toolBar);
+        toolBar_2 = new QToolBar(Login);
+        toolBar_2->setObjectName("toolBar_2");
+        Login->addToolBar(Qt::TopToolBarArea, toolBar_2);
 
         retranslateUi(Login);
 
@@ -208,10 +218,11 @@ public:
         usernameInput->setInputMask(QString());
         usernameInput->setText(QString());
         passwordInput->setText(QString());
-        registerButton->setText(QCoreApplication::translate("Login", "pas encore de compte ? inscrivez-vous !", nullptr));
+        registrationButton->setText(QCoreApplication::translate("Login", "pas encore de compte ? inscrivez-vous !", nullptr));
         loginbutton->setText(QCoreApplication::translate("Login", "LOGIN", nullptr));
         cancelbutton->setText(QCoreApplication::translate("Login", "Cancel", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("Login", "toolBar", nullptr));
+        toolBar_2->setWindowTitle(QCoreApplication::translate("Login", "toolBar_2", nullptr));
     } // retranslateUi
 
 };
