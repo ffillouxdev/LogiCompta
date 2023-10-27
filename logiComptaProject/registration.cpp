@@ -20,8 +20,8 @@ Registration::~Registration()
 void Registration::on_CancelButton_clicked()
 {
     this->hide();
-    Login *login = new Login();
-    login->show();
+    /*Login *login = new Login();
+    login->show();*/
 }
 
 

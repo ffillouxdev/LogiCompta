@@ -23,6 +23,7 @@ private slots:
     void on_loginbutton_clicked();
     void on_cancelbutton_clicked();
     void on_registrationButton_clicked();
+    void nb_data_user();
 
 private:
     Ui::Login *ui;

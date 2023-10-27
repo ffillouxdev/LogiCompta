@@ -13,7 +13,7 @@ static bool reelconnexionDB()
     qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
 
     QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL");
-    db.setDatabaseName("ComptaLogiDB");
+    db.setDatabaseName("logicomptadb");
     db.setHostName("127.0.0.1");
     db.setUserName("root");
     db.setPort(3306);
@@ -25,7 +25,7 @@ static bool reelconnexionDB()
     }
     else
     {
-        qDebug() << "Failed to connect to MySQL:" /*<< db.lastError().text()*/;
+        qDebug() << "Failed to connect to MySQL!" /*<< db.lastError().text()*/;
         return false;
     }
 }
