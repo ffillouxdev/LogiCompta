@@ -2,6 +2,7 @@
 #include "ui_login.h"
 
 #include <QMessageBox>
+#include <QString>
 
 using namespace std;
 
