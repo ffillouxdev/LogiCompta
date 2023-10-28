@@ -813,6 +813,7 @@ release/moc_login.cpp: ../logiComptaProject/login.h \
 		../logiComptaProject/addrubriquesdialog.h \
 		../logiComptaProject/profildialog.h \
 		../logiComptaProject/registration.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSql \
 		release/moc_predefs.h \
 		C:/Qt/6.5.2/mingw_64/bin/moc.exe
 	C:\Qt\6.5.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C ++/LogiCompta/build-logiComptaProject-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C ++/LogiCompta/logiComptaProject" -IC:/Qt/6.5.2/mingw_64/include -IC:/Qt/6.5.2/mingw_64/include/QtWidgets -IC:/Qt/6.5.2/mingw_64/include/QtGui -IC:/Qt/6.5.2/mingw_64/include/QtSql -IC:/Qt/6.5.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\logiComptaProject\login.h -o release\moc_login.cpp
@@ -2268,6 +2269,7 @@ release/login.o: ../logiComptaProject/login.cpp ../logiComptaProject/login.h \
 		../logiComptaProject/addrubriquesdialog.h \
 		../logiComptaProject/profildialog.h \
 		../logiComptaProject/registration.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSql \
 		ui_login.h \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
@@ -2622,6 +2624,7 @@ release/main.o: ../logiComptaProject/main.cpp ../logiComptaProject/login.h \
 		../logiComptaProject/addrubriquesdialog.h \
 		../logiComptaProject/profildialog.h \
 		../logiComptaProject/registration.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSql \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qguiapplication.h \
@@ -3206,7 +3209,8 @@ release/profildialog.o: ../logiComptaProject/profildialog.cpp ../logiComptaProje
 		C:/Qt/6.5.2/mingw_64/include/QtGui/qtextoption.h \
 		../logiComptaProject/addvaluedialog.h \
 		../logiComptaProject/addrubriquesdialog.h \
-		../logiComptaProject/registration.h
+		../logiComptaProject/registration.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSql
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\profildialog.o ..\logiComptaProject\profildialog.cpp
 
 release/registration.o: ../logiComptaProject/registration.cpp ../logiComptaProject/registration.h \
@@ -3562,7 +3566,8 @@ release/registration.o: ../logiComptaProject/registration.cpp ../logiComptaProje
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QDialog \
 		../logiComptaProject/addvaluedialog.h \
 		../logiComptaProject/addrubriquesdialog.h \
-		../logiComptaProject/profildialog.h
+		../logiComptaProject/profildialog.h \
+		C:/Qt/6.5.2/mingw_64/include/QtSql/QSql
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\registration.o ..\logiComptaProject\registration.cpp
 
 release/qrc_img.o: release/qrc_img.cpp 

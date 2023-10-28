@@ -24,6 +24,8 @@ private slots:
 
     void on_resetButton_clicked();
 
+    void on_changeInfoButton_clicked();
+
 private:
     Ui::profilDialog *ui;
 };

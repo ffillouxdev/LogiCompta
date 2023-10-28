@@ -57,3 +57,10 @@ void profilDialog::on_resetButton_clicked()
     }
 }
 
+
+void profilDialog::on_changeInfoButton_clicked()
+{
+    Login loginInstance;
+    loginInstance.nb_data_user();
+}
+

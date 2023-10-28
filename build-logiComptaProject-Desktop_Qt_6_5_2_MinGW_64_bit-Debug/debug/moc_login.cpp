@@ -43,18 +43,16 @@ static constexpr auto qt_meta_stringdata_CLASSLoginENDCLASS = QtMocHelpers::stri
     "on_loginbutton_clicked",
     "",
     "on_cancelbutton_clicked",
-    "on_registrationButton_clicked",
-    "nb_data_user"
+    "on_registrationButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSLoginENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[10];
     char stringdata0[6];
     char stringdata1[23];
     char stringdata2[1];
     char stringdata3[24];
     char stringdata4[30];
-    char stringdata5[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSLoginENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -64,15 +62,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSLoginENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(6, 22),  // "on_loginbutton_clicked"
         QT_MOC_LITERAL(29, 0),  // ""
         QT_MOC_LITERAL(30, 23),  // "on_cancelbutton_clicked"
-        QT_MOC_LITERAL(54, 29),  // "on_registrationButton_clicked"
-        QT_MOC_LITERAL(84, 12)   // "nb_data_user"
+        QT_MOC_LITERAL(54, 29)   // "on_registrationButton_clicked"
     },
     "Login",
     "on_loginbutton_clicked",
     "",
     "on_cancelbutton_clicked",
-    "on_registrationButton_clicked",
-    "nb_data_user"
+    "on_registrationButton_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -84,7 +80,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLoginENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -92,13 +88,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLoginENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x08,    1 /* Private */,
-       3,    0,   39,    2, 0x08,    2 /* Private */,
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       1,    0,   32,    2, 0x08,    1 /* Private */,
+       3,    0,   33,    2, 0x08,    2 /* Private */,
+       4,    0,   34,    2, 0x08,    3 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -120,8 +114,6 @@ Q_CONSTINIT const QMetaObject Login::staticMetaObject = { {
         // method 'on_cancelbutton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_registrationButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'nb_data_user'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -136,7 +128,6 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 0: _t->on_loginbutton_clicked(); break;
         case 1: _t->on_cancelbutton_clicked(); break;
         case 2: _t->on_registrationButton_clicked(); break;
-        case 3: _t->nb_data_user(); break;
         default: ;
         }
     }
@@ -162,13 +153,13 @@ int Login::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }

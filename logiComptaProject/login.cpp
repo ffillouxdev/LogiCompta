@@ -19,8 +19,9 @@ Login::Login(QWidget *parent):
 
     // Database
     qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
+
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(QCoreApplication::applicationDirPath() + "/logicomptadb.sqlite");
+    db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
     if(db.open())
     {
         qDebug() << "Connected!";
@@ -29,8 +30,6 @@ Login::Login(QWidget *parent):
     {
         qDebug() << "Failed to connect..." << db.lastError().text();
     }
-
-    nb_data_user();
 }
 
 Login::~Login()
@@ -42,22 +41,50 @@ Login::~Login()
 void Login::on_loginbutton_clicked()
 {
     //Variables to recup the value of the QLineEdit UserName and Password
-    QString UserName = ui->usernameInput->text();
-    QString Password = ui->passwordInput->text();
+    QString userName = ui->usernameInput->text();
+    QString password = ui->passwordInput->text();
 
+    db.open();
+    if (!db.isOpen()){
+        qDebug() << "Failed to open the database";
+        return;
+    } else {
+        QSqlQuery query;
+        query.prepare("SELECT * FROM login_register where username = :username and password = :password");
+        query.bindValue(":username", userName);
+        query.bindValue(":password", password);
+        int line(0);
+        if(query.exec()){
+            while(query.next()){
+                line++;
+            }
+            if(line == 1){
+                cout << "username and password matched.";
+                //connect page popup
+                this->hide();
+                MainPage *mainpage = new  MainPage();
+                mainpage->show();
+            }
+            if(line < 1){
+                cout << "username and password are not correct.";
+                QMessageBox::warning(this,"ComptaPro","Please Enter Valid Username or Password.");
+            }
 
-    if (UserName == "ComptaPro" && Password == "AZERTY")
-    {
-        //connect page popup
-        this->hide();
-        MainPage *mainpage = new  MainPage();
-        mainpage->show();
+            if(line > 1){
+                cout << "username and password are duplicated.";
+                QMessageBox::warning(this,"ComptaPro","Please Enter Valid Username or Password. those are duplicated");
+            }
+        }
+    }
+
+    /*{
+
     }
     else
     {
         QMessageBox::warning(this,"ComptaPro","Please Enter Valid Username or Password.");
-    }
-
+    }*/
+    db.close();
 }
 
 
@@ -89,7 +116,6 @@ void Login::nb_data_user()
     if (query.exec("SELECT COUNT(*) FROM login_register;")) {
         if (query.next()) {
             line = query.value(0).toInt();
-            line++;
         }
     } else {
         qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
