@@ -1,7 +1,7 @@
 #ifndef REGISTRATION_H
 #define REGISTRATION_H
 
-#include "connexion_mysql.h"
+#include "connexion_sqlite.h"
 
 
 #include <QMainWindow>
@@ -27,6 +27,7 @@ private slots:
 
 private:
     Ui::Registration *ui;
+    QSqlDatabase db;
 };
 
 #endif // REGISTRATION_H

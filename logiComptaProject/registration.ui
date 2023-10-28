@@ -114,7 +114,7 @@ QLineEdit{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="emailLineEdit">
          <property name="minimumSize">
           <size>
            <width>250</width>

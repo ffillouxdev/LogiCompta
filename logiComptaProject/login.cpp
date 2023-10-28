@@ -13,12 +13,24 @@ Login::Login(QWidget *parent):
     ui->setupUi(this);
     setWindowTitle("LogiCompta");
     QMainWindow::showMaximized();
-    reelconnexionDB();
-    nb_data_user();
-
         //placeholder for login LineEdit
     ui->usernameInput->setPlaceholderText("User Name");
     ui->passwordInput->setPlaceholderText("Password");
+
+    // Database
+    qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
+    db=QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName(QCoreApplication::applicationDirPath() + "/logicomptadb.sqlite");
+    if(db.open())
+    {
+        qDebug() << "Connected!";
+    }
+    else
+    {
+        qDebug() << "Failed to connect..." << db.lastError().text();
+    }
+
+    nb_data_user();
 }
 
 Login::~Login()
@@ -33,7 +45,6 @@ void Login::on_loginbutton_clicked()
     QString UserName = ui->usernameInput->text();
     QString Password = ui->passwordInput->text();
 
-    //reelconnexionDB.open();
 
     if (UserName == "ComptaPro" && Password == "AZERTY")
     {
@@ -71,12 +82,20 @@ void Login::on_registrationButton_clicked()
 
 void Login::nb_data_user()
 {
-    int line (0);
-    QSqlQuery request;
-    request.exec("select count(*) from login_register");
-    while(request.next())
-    {
-        line=request.value(0).toInt();
+    db.open();
+    QSqlDatabase::database().transaction();
+    QSqlQuery query(db);
+    int line = 0;
+    if (query.exec("SELECT COUNT(*) FROM login_register;")) {
+        if (query.next()) {
+            line = query.value(0).toInt();
+            line++;
+        }
+    } else {
+        qDebug() << "Erreur d'exécution de la requête : " << query.lastError().text();
+        db.close();
     }
-    QMessageBox::warning(this,"", QString::number(line));
+    db.close();
+    QMessageBox::warning(this, "", QString::number(line));
 }
+

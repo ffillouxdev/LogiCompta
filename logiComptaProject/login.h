@@ -4,9 +4,11 @@
 #include <QMainWindow>
 #include <QMessageBox>
 
-#include "connexion_mysql.h"
+#include "connexion_sqlite.h"
 #include "mainpage.h"
 #include "registration.h"
+
+#include <QSql>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -27,6 +29,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    QSqlDatabase db;
 };
 
 #endif // LOGIN_H

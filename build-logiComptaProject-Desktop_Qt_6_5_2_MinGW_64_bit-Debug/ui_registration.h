@@ -35,7 +35,7 @@ public:
     QLabel *userNameLabel;
     QLineEdit *userNameLineEdit;
     QLabel *emailLabel;
-    QLineEdit *lineEdit_4;
+    QLineEdit *emailLineEdit;
     QLabel *passwordLabel;
     QLineEdit *passwordLineEdit;
     QLabel *confirmPassLabel;
@@ -116,12 +116,12 @@ public:
 
         verticalLayout->addWidget(emailLabel);
 
-        lineEdit_4 = new QLineEdit(registrationFormFrame);
-        lineEdit_4->setObjectName("lineEdit_4");
-        lineEdit_4->setMinimumSize(QSize(250, 25));
-        lineEdit_4->setMaximumSize(QSize(250, 40));
+        emailLineEdit = new QLineEdit(registrationFormFrame);
+        emailLineEdit->setObjectName("emailLineEdit");
+        emailLineEdit->setMinimumSize(QSize(250, 25));
+        emailLineEdit->setMaximumSize(QSize(250, 40));
 
-        verticalLayout->addWidget(lineEdit_4);
+        verticalLayout->addWidget(emailLineEdit);
 
         passwordLabel = new QLabel(registrationFormFrame);
         passwordLabel->setObjectName("passwordLabel");

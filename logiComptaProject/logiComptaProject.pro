@@ -1,6 +1,8 @@
 QT       += core gui
 QT       += sql
 
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -21,7 +23,7 @@ SOURCES += \
 HEADERS += \
     addrubriquesdialog.h \
     addvaluedialog.h \
-    connexion_mysql.h \
+    connexion_sqlite.h \
     login.h \
     mainpage.h \
     profildialog.h \
