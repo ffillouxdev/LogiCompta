@@ -1,17 +1,18 @@
 #include "profildialog.h"
 #include "ui_profildialog.h"
+
 #include "login.h"
-
-
+#include <iostream>
 #include <QMessageBox>
 
-profilDialog::profilDialog(QWidget *parent) :
+profilDialog::profilDialog(const QString &userName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::profilDialog)
 {
     ui->setupUi(this);
     setWindowTitle("Profil");
 
+    ui->nameLabel->setText(userName);
 }
 
 profilDialog::~profilDialog()
@@ -38,7 +39,8 @@ void profilDialog::on_discoButton_clicked()
     reply = QMessageBox::question(this,"ComptaPro","Are you sure to disconnect ?", QMessageBox::Yes |QMessageBox::No);
     if(reply == QMessageBox::Yes)
     {
-        this->hide();
+        emit logoutRequested();
+        this->close();
         Login *login = new Login();
         login->show();
     }
@@ -60,7 +62,6 @@ void profilDialog::on_resetButton_clicked()
 
 void profilDialog::on_changeInfoButton_clicked()
 {
-    Login loginInstance;
-    loginInstance.nb_data_user();
+
 }
 

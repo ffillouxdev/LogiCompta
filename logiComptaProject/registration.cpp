@@ -25,7 +25,6 @@ Registration::Registration(QWidget *parent) :
     {
         qDebug() << "Failed to connect..." << db.lastError().text();
     }
-
 }
 
 Registration::~Registration()

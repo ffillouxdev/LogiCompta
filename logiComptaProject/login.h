@@ -21,6 +21,7 @@ public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
     void nb_data_user();
+    QString sendUsername();
 
 private slots:
     void on_loginbutton_clicked();
@@ -30,6 +31,7 @@ private slots:
 private:
     Ui::Login *ui;
     QSqlDatabase db;
+    QString userName;
 };
 
 #endif // LOGIN_H

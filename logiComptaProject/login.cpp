@@ -3,6 +3,7 @@
 
 #include <QMessageBox>
 #include <QString>
+#include <iostream>
 
 using namespace std;
 
@@ -37,13 +38,11 @@ Login::~Login()
     delete ui;
 }
 
-
 void Login::on_loginbutton_clicked()
 {
     //Variables to recup the value of the QLineEdit UserName and Password
-    QString userName = ui->usernameInput->text();
+    userName = ui->usernameInput->text();
     QString password = ui->passwordInput->text();
-
     db.open();
     if (!db.isOpen()){
         qDebug() << "Failed to open the database";
@@ -63,6 +62,7 @@ void Login::on_loginbutton_clicked()
                 //connect page popup
                 this->hide();
                 MainPage *mainpage = new  MainPage();
+                mainpage->setUserName(userName);
                 mainpage->show();
             }
             if(line < 1){
@@ -123,5 +123,13 @@ void Login::nb_data_user()
     }
     db.close();
     QMessageBox::warning(this, "", QString::number(line));
+}
+
+
+QString Login::sendUsername()
+{
+    cout << "Username : " << userName.toStdString();
+    QString userNameInMemory = userName;
+    return userNameInMemory;
 }
 

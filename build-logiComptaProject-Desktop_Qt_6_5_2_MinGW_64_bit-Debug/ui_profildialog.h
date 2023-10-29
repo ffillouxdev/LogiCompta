@@ -76,7 +76,7 @@ public:
         happylabel->setFont(font2);
         hellolabel = new QLabel(profilDialog);
         hellolabel->setObjectName("hellolabel");
-        hellolabel->setGeometry(QRect(160, 40, 161, 20));
+        hellolabel->setGeometry(QRect(170, 40, 161, 20));
         hellolabel->setFont(font2);
         changeInfoButton = new QPushButton(profilDialog);
         changeInfoButton->setObjectName("changeInfoButton");
@@ -89,7 +89,7 @@ public:
 "}"));
         nameLabel = new QLabel(profilDialog);
         nameLabel->setObjectName("nameLabel");
-        nameLabel->setGeometry(QRect(80, 40, 81, 21));
+        nameLabel->setGeometry(QRect(70, 40, 101, 21));
         QFont font3;
         font3.setPointSize(12);
         font3.setBold(true);

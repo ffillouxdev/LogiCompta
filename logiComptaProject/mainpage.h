@@ -26,6 +26,9 @@ class MainPage : public QMainWindow
 public:
     explicit MainPage(QWidget *parent = nullptr);
     ~MainPage();
+    void setUserName(const QString &userName);
+    void logout();
+
 
 private slots:
     void on_ProfilpushButton_clicked();
@@ -36,6 +39,9 @@ private slots:
 
 private:
     Ui::MainPage *ui;
+    QString m_userName;
+    profilDialog *profil;
+
 };
 
 #endif // MAINPAGE_H

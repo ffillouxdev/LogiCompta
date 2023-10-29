@@ -12,8 +12,11 @@ class profilDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit profilDialog(QWidget *parent = nullptr);
+    explicit profilDialog(const QString &userName, QWidget *parent = nullptr);
     ~profilDialog();
+signals:
+    void logoutRequested();
+
 
 private slots:
     void on_cancelButton_clicked();
@@ -29,5 +32,7 @@ private slots:
 private:
     Ui::profilDialog *ui;
 };
+
+
 
 #endif // PROFILDIALOG_H

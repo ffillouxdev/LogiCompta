@@ -17,6 +17,8 @@ MainPage::MainPage(QWidget *parent) :
     //placeholder for LineEdit
     ui->counter->setPlaceholderText("0.0");
     ui->counter->setEnabled(false);
+
+
 }
 
 MainPage::~MainPage()
@@ -34,11 +36,10 @@ void MainPage::on_invoiceButton_clicked()
 void MainPage::on_ProfilpushButton_clicked()
 {
     // Open user profil popup
-    profilDialog *profil = new profilDialog();
-
-    // check and find the user name to put it in nameLabel
-
+    profilDialog *profil = new profilDialog(m_userName);
+    connect(profil, &profilDialog::logoutRequested, this, &MainPage::logout);
     profil->show();
+
 }
 
 
@@ -49,3 +50,13 @@ void MainPage::on_addRubButton_clicked()
     rubrique->show();
 }
 
+void MainPage::setUserName(const QString &userName)
+{
+    // Stockez la valeur du nom d'utilisateur dans une variable membre de la classe profilDialog
+    m_userName = userName;
+}
+
+void MainPage::logout()
+{
+    close(); // Fermez la fenêtre MainPage
+}

@@ -39,8 +39,9 @@ namespace {
 struct qt_meta_stringdata_CLASSprofilDialogENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSprofilDialogENDCLASS = QtMocHelpers::stringData(
     "profilDialog",
-    "on_cancelButton_clicked",
+    "logoutRequested",
     "",
+    "on_cancelButton_clicked",
     "on_makeChangeButton_clicked",
     "on_discoButton_clicked",
     "on_resetButton_clicked",
@@ -48,30 +49,33 @@ static constexpr auto qt_meta_stringdata_CLASSprofilDialogENDCLASS = QtMocHelper
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSprofilDialogENDCLASS_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[16];
     char stringdata0[13];
-    char stringdata1[24];
+    char stringdata1[16];
     char stringdata2[1];
-    char stringdata3[28];
-    char stringdata4[23];
+    char stringdata3[24];
+    char stringdata4[28];
     char stringdata5[23];
-    char stringdata6[28];
+    char stringdata6[23];
+    char stringdata7[28];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSprofilDialogENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSprofilDialogENDCLASS_t qt_meta_stringdata_CLASSprofilDialogENDCLASS = {
     {
         QT_MOC_LITERAL(0, 12),  // "profilDialog"
-        QT_MOC_LITERAL(13, 23),  // "on_cancelButton_clicked"
-        QT_MOC_LITERAL(37, 0),  // ""
-        QT_MOC_LITERAL(38, 27),  // "on_makeChangeButton_clicked"
-        QT_MOC_LITERAL(66, 22),  // "on_discoButton_clicked"
-        QT_MOC_LITERAL(89, 22),  // "on_resetButton_clicked"
-        QT_MOC_LITERAL(112, 27)   // "on_changeInfoButton_clicked"
+        QT_MOC_LITERAL(13, 15),  // "logoutRequested"
+        QT_MOC_LITERAL(29, 0),  // ""
+        QT_MOC_LITERAL(30, 23),  // "on_cancelButton_clicked"
+        QT_MOC_LITERAL(54, 27),  // "on_makeChangeButton_clicked"
+        QT_MOC_LITERAL(82, 22),  // "on_discoButton_clicked"
+        QT_MOC_LITERAL(105, 22),  // "on_resetButton_clicked"
+        QT_MOC_LITERAL(128, 27)   // "on_changeInfoButton_clicked"
     },
     "profilDialog",
-    "on_cancelButton_clicked",
+    "logoutRequested",
     "",
+    "on_cancelButton_clicked",
     "on_makeChangeButton_clicked",
     "on_discoButton_clicked",
     "on_resetButton_clicked",
@@ -87,19 +91,25 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSprofilDialogENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   50,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x08,    1 /* Private */,
-       3,    0,   45,    2, 0x08,    2 /* Private */,
-       4,    0,   46,    2, 0x08,    3 /* Private */,
-       5,    0,   47,    2, 0x08,    4 /* Private */,
-       6,    0,   48,    2, 0x08,    5 /* Private */,
+       3,    0,   51,    2, 0x08,    2 /* Private */,
+       4,    0,   52,    2, 0x08,    3 /* Private */,
+       5,    0,   53,    2, 0x08,    4 /* Private */,
+       6,    0,   54,    2, 0x08,    5 /* Private */,
+       7,    0,   55,    2, 0x08,    6 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
@@ -120,6 +130,8 @@ Q_CONSTINIT const QMetaObject profilDialog::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSprofilDialogENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<profilDialog, std::true_type>,
+        // method 'logoutRequested'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_cancelButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_makeChangeButton_clicked'
@@ -140,12 +152,22 @@ void profilDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         auto *_t = static_cast<profilDialog *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_cancelButton_clicked(); break;
-        case 1: _t->on_makeChangeButton_clicked(); break;
-        case 2: _t->on_discoButton_clicked(); break;
-        case 3: _t->on_resetButton_clicked(); break;
-        case 4: _t->on_changeInfoButton_clicked(); break;
+        case 0: _t->logoutRequested(); break;
+        case 1: _t->on_cancelButton_clicked(); break;
+        case 2: _t->on_makeChangeButton_clicked(); break;
+        case 3: _t->on_discoButton_clicked(); break;
+        case 4: _t->on_resetButton_clicked(); break;
+        case 5: _t->on_changeInfoButton_clicked(); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (profilDialog::*)();
+            if (_t _q_method = &profilDialog::logoutRequested; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
         }
     }
     (void)_a;
@@ -170,14 +192,20 @@ int profilDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
+}
+
+// SIGNAL 0
+void profilDialog::logoutRequested()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP
