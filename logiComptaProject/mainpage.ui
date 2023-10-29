@@ -273,7 +273,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="QPushButton" name="addRubButton">
+               <widget class="QPushButton" name="addSectionButton">
                 <property name="geometry">
                  <rect>
                   <x>60</x>
@@ -283,7 +283,7 @@
                  </rect>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">#addRubButton{
+                 <string notr="true">#addSectionButton{
 	background-color: transparent;
 	border: none;
 	border-image: url(:/res/plus.png);
@@ -294,7 +294,7 @@
                  <string/>
                 </property>
                </widget>
-               <widget class="QLabel" name="addRubLabel">
+               <widget class="QLabel" name="addSectionLabel">
                 <property name="geometry">
                  <rect>
                   <x>50</x>
@@ -310,16 +310,16 @@
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">#addRubLabel {
+                 <string notr="true">#addSectionLabel {
 	color: #fff;
 }
 
-#addRubLabel:hover {
+#addSectionLabel:hover {
 	color: #000;
 }</string>
                 </property>
                 <property name="text">
-                 <string>add a rubrique</string>
+                 <string>add a section</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -473,7 +473,7 @@
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <widget class="QPushButton" name="listRubriquesPushButton">
+               <widget class="QPushButton" name="listSectionsPushButton">
                 <property name="geometry">
                  <rect>
                   <x>20</x>
@@ -483,7 +483,7 @@
                  </rect>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">#listRubriquesPushButton{
+                 <string notr="true">#listSectionsPushButton{
 	background-color: transparent;
 	background : none;
 	
@@ -496,7 +496,7 @@
                  <string/>
                 </property>
                </widget>
-               <widget class="QLabel" name="listRubriquesLabel">
+               <widget class="QLabel" name="listSectionsLabel">
                 <property name="geometry">
                  <rect>
                   <x>50</x>
@@ -512,16 +512,16 @@
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">#listRubriquesLabel {
+                 <string notr="true">#listSectionsLabel {
 	color: #fff;
 }
 
-#listRubriquesLabel:hover {
+#listSectionsLabel:hover {
 	color: #000;
 }</string>
                 </property>
                 <property name="text">
-                 <string>list of all rubriques</string>
+                 <string>list of all sections</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>

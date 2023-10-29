@@ -42,14 +42,6 @@ void MainPage::on_ProfilpushButton_clicked()
 
 }
 
-
-void MainPage::on_addRubButton_clicked()
-{
-    ADDrubriquesDialog *rubrique = new ADDrubriquesDialog();
-
-    rubrique->show();
-}
-
 void MainPage::setUserName(const QString &userName)
 {
     // Stockez la valeur du nom d'utilisateur dans une variable membre de la classe profilDialog
@@ -60,3 +52,13 @@ void MainPage::logout()
 {
     close(); // Fermez la fenêtre MainPage
 }
+
+
+
+
+void MainPage::on_addSectionButton_clicked()
+{
+    ADDrubriquesDialog *rubrique = new ADDrubriquesDialog();
+    rubrique->show();
+}
+

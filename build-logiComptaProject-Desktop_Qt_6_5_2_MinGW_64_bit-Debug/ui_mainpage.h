@@ -49,8 +49,8 @@ public:
     QPushButton *invoiceButton;
     QLabel *invoiceLabel;
     QFrame *secondRightFrame;
-    QPushButton *addRubButton;
-    QLabel *addRubLabel;
+    QPushButton *addSectionButton;
+    QLabel *addSectionLabel;
     QFrame *thirdRightFrame;
     QPushButton *ProfilpushButton;
     QLabel *profilLabel;
@@ -60,8 +60,8 @@ public:
     QPushButton *listInvoicesPushButton;
     QLabel *listInvoicesLabel;
     QFrame *fifthRightFrame;
-    QPushButton *listRubriquesPushButton;
-    QLabel *listRubriquesLabel;
+    QPushButton *listSectionsPushButton;
+    QLabel *listSectionsLabel;
     QFrame *sixRightFrame;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -205,27 +205,27 @@ public:
         secondRightFrame->setObjectName("secondRightFrame");
         secondRightFrame->setFrameShape(QFrame::StyledPanel);
         secondRightFrame->setFrameShadow(QFrame::Raised);
-        addRubButton = new QPushButton(secondRightFrame);
-        addRubButton->setObjectName("addRubButton");
-        addRubButton->setGeometry(QRect(60, 30, 131, 141));
-        addRubButton->setStyleSheet(QString::fromUtf8("#addRubButton{\n"
+        addSectionButton = new QPushButton(secondRightFrame);
+        addSectionButton->setObjectName("addSectionButton");
+        addSectionButton->setGeometry(QRect(60, 30, 131, 141));
+        addSectionButton->setStyleSheet(QString::fromUtf8("#addSectionButton{\n"
 "	background-color: transparent;\n"
 "	border: none;\n"
 "	border-image: url(:/res/plus.png);\n"
 "	background-repeat: none;\n"
 "}"));
-        addRubLabel = new QLabel(secondRightFrame);
-        addRubLabel->setObjectName("addRubLabel");
-        addRubLabel->setGeometry(QRect(50, 200, 151, 20));
-        addRubLabel->setFont(font3);
-        addRubLabel->setStyleSheet(QString::fromUtf8("#addRubLabel {\n"
+        addSectionLabel = new QLabel(secondRightFrame);
+        addSectionLabel->setObjectName("addSectionLabel");
+        addSectionLabel->setGeometry(QRect(50, 200, 151, 20));
+        addSectionLabel->setFont(font3);
+        addSectionLabel->setStyleSheet(QString::fromUtf8("#addSectionLabel {\n"
 "	color: #fff;\n"
 "}\n"
 "\n"
-"#addRubLabel:hover {\n"
+"#addSectionLabel:hover {\n"
 "	color: #000;\n"
 "}"));
-        addRubLabel->setAlignment(Qt::AlignCenter);
+        addSectionLabel->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(secondRightFrame);
 
@@ -300,10 +300,10 @@ public:
         fifthRightFrame->setObjectName("fifthRightFrame");
         fifthRightFrame->setFrameShape(QFrame::StyledPanel);
         fifthRightFrame->setFrameShadow(QFrame::Raised);
-        listRubriquesPushButton = new QPushButton(fifthRightFrame);
-        listRubriquesPushButton->setObjectName("listRubriquesPushButton");
-        listRubriquesPushButton->setGeometry(QRect(20, 30, 201, 171));
-        listRubriquesPushButton->setStyleSheet(QString::fromUtf8("#listRubriquesPushButton{\n"
+        listSectionsPushButton = new QPushButton(fifthRightFrame);
+        listSectionsPushButton->setObjectName("listSectionsPushButton");
+        listSectionsPushButton->setGeometry(QRect(20, 30, 201, 171));
+        listSectionsPushButton->setStyleSheet(QString::fromUtf8("#listSectionsPushButton{\n"
 "	background-color: transparent;\n"
 "	background : none;\n"
 "	\n"
@@ -311,18 +311,18 @@ public:
 "	border: none;\n"
 "	background-repeat: none;\n"
 "}"));
-        listRubriquesLabel = new QLabel(fifthRightFrame);
-        listRubriquesLabel->setObjectName("listRubriquesLabel");
-        listRubriquesLabel->setGeometry(QRect(50, 190, 161, 20));
-        listRubriquesLabel->setFont(font3);
-        listRubriquesLabel->setStyleSheet(QString::fromUtf8("#listRubriquesLabel {\n"
+        listSectionsLabel = new QLabel(fifthRightFrame);
+        listSectionsLabel->setObjectName("listSectionsLabel");
+        listSectionsLabel->setGeometry(QRect(50, 190, 161, 20));
+        listSectionsLabel->setFont(font3);
+        listSectionsLabel->setStyleSheet(QString::fromUtf8("#listSectionsLabel {\n"
 "	color: #fff;\n"
 "}\n"
 "\n"
-"#listRubriquesLabel:hover {\n"
+"#listSectionsLabel:hover {\n"
 "	color: #000;\n"
 "}"));
-        listRubriquesLabel->setAlignment(Qt::AlignCenter);
+        listSectionsLabel->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_3->addWidget(fifthRightFrame);
 
@@ -366,14 +366,14 @@ public:
         pushButton->setText(QCoreApplication::translate("MainPage", "who are us ?", nullptr));
         invoiceButton->setText(QString());
         invoiceLabel->setText(QCoreApplication::translate("MainPage", "add a invoice", nullptr));
-        addRubButton->setText(QString());
-        addRubLabel->setText(QCoreApplication::translate("MainPage", "add a rubrique", nullptr));
+        addSectionButton->setText(QString());
+        addSectionLabel->setText(QCoreApplication::translate("MainPage", "add a section", nullptr));
         ProfilpushButton->setText(QString());
         profilLabel->setText(QCoreApplication::translate("MainPage", "Profil", nullptr));
         listInvoicesPushButton->setText(QString());
         listInvoicesLabel->setText(QCoreApplication::translate("MainPage", "list of all invoices", nullptr));
-        listRubriquesPushButton->setText(QString());
-        listRubriquesLabel->setText(QCoreApplication::translate("MainPage", "list of all rubriques", nullptr));
+        listSectionsPushButton->setText(QString());
+        listSectionsLabel->setText(QCoreApplication::translate("MainPage", "list of all sections", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainPage", "toolBar", nullptr));
     } // retranslateUi
 

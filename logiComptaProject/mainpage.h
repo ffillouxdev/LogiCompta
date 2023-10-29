@@ -33,9 +33,9 @@ public:
 private slots:
     void on_ProfilpushButton_clicked();
 
-    void on_addRubButton_clicked();
-
     void on_invoiceButton_clicked();
+
+    void on_addSectionButton_clicked();
 
 private:
     Ui::MainPage *ui;

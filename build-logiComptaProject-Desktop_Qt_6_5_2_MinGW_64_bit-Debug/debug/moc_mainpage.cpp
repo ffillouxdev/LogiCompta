@@ -42,8 +42,8 @@ static constexpr auto qt_meta_stringdata_CLASSMainPageENDCLASS = QtMocHelpers::s
     "MainPage",
     "on_ProfilpushButton_clicked",
     "",
-    "on_addRubButton_clicked",
-    "on_invoiceButton_clicked"
+    "on_invoiceButton_clicked",
+    "on_addSectionButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainPageENDCLASS_t {
@@ -51,8 +51,8 @@ struct qt_meta_stringdata_CLASSMainPageENDCLASS_t {
     char stringdata0[9];
     char stringdata1[28];
     char stringdata2[1];
-    char stringdata3[24];
-    char stringdata4[25];
+    char stringdata3[25];
+    char stringdata4[28];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainPageENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -61,14 +61,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainPageENDCLASS_t qt_meta_stri
         QT_MOC_LITERAL(0, 8),  // "MainPage"
         QT_MOC_LITERAL(9, 27),  // "on_ProfilpushButton_clicked"
         QT_MOC_LITERAL(37, 0),  // ""
-        QT_MOC_LITERAL(38, 23),  // "on_addRubButton_clicked"
-        QT_MOC_LITERAL(62, 24)   // "on_invoiceButton_clicked"
+        QT_MOC_LITERAL(38, 24),  // "on_invoiceButton_clicked"
+        QT_MOC_LITERAL(63, 27)   // "on_addSectionButton_clicked"
     },
     "MainPage",
     "on_ProfilpushButton_clicked",
     "",
-    "on_addRubButton_clicked",
-    "on_invoiceButton_clicked"
+    "on_invoiceButton_clicked",
+    "on_addSectionButton_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -111,9 +111,9 @@ Q_CONSTINIT const QMetaObject MainPage::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainPage, std::true_type>,
         // method 'on_ProfilpushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_addRubButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_invoiceButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_addSectionButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -126,8 +126,8 @@ void MainPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         (void)_t;
         switch (_id) {
         case 0: _t->on_ProfilpushButton_clicked(); break;
-        case 1: _t->on_addRubButton_clicked(); break;
-        case 2: _t->on_invoiceButton_clicked(); break;
+        case 1: _t->on_invoiceButton_clicked(); break;
+        case 2: _t->on_addSectionButton_clicked(); break;
         default: ;
         }
     }
