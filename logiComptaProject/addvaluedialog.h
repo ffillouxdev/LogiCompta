@@ -1,8 +1,13 @@
 #ifndef ADDVALUEDIALOG_H
 #define ADDVALUEDIALOG_H
 
-#include <QDialog>
 #include <iostream>
+#include <QDialog>
+#include "connexion_sqlite.h"
+#include "qsqldatabase.h"
+#include <QDialog>
+#include <QSql>
+#include <QMessageBox>
 
 
 namespace Ui {
@@ -14,8 +19,11 @@ class ADDvalueDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ADDvalueDialog(QWidget *parent = nullptr);
+    explicit ADDvalueDialog(const QString &userName, QWidget *parent = nullptr);
     ~ADDvalueDialog();
+    int getUserId(const QString &userName);
+    int getSectionId(const QString &section);
+
 
 private slots:
     void on_CancelpushButton_clicked();
@@ -24,6 +32,8 @@ private slots:
 
 private:
     Ui::ADDvalueDialog *ui;
+    QSqlDatabase db;
+    QString nameUser;
 };
 
 #endif // ADDVALUEDIALOG_H

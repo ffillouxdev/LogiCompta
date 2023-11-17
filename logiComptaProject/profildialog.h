@@ -17,7 +17,6 @@ public:
 signals:
     void logoutRequested();
 
-
 private slots:
     void on_cancelButton_clicked();
 

@@ -1,7 +1,11 @@
 #ifndef ADDRUBRIQUESDIALOG_H
 #define ADDRUBRIQUESDIALOG_H
 
+#include "connexion_sqlite.h"
+#include "qsqldatabase.h"
 #include <QDialog>
+#include <QSql>
+#include <QMessageBox>
 
 namespace Ui {
 class ADDrubriquesDialog;
@@ -22,6 +26,7 @@ private slots:
 
 private:
     Ui::ADDrubriquesDialog *ui;
+    QSqlDatabase db;
 };
 
 #endif // ADDRUBRIQUESDIALOG_H

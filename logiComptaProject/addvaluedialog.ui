@@ -52,7 +52,7 @@
     <string>ajoutez une nouvelle valeur</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="prixLineEdit">
+  <widget class="QLineEdit" name="amountLineEdit">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -65,7 +65,7 @@
     <string>prix</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="rubriqueComboBox">
+  <widget class="QComboBox" name="sectionComboBox">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -74,11 +74,6 @@
      <height>31</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>divers</string>
-    </property>
-   </item>
   </widget>
   <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">

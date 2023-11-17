@@ -22,7 +22,7 @@ Login::Login(QWidget *parent):
     qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
 
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
+    db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C . C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
     if(db.open())
     {
         qDebug() << "Connected!";
@@ -76,14 +76,6 @@ void Login::on_loginbutton_clicked()
             }
         }
     }
-
-    /*{
-
-    }
-    else
-    {
-        QMessageBox::warning(this,"ComptaPro","Please Enter Valid Username or Password.");
-    }*/
     db.close();
 }
 

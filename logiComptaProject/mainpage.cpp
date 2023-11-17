@@ -28,7 +28,7 @@ MainPage::~MainPage()
 
 void MainPage::on_invoiceButton_clicked()
 {
-    ADDvalueDialog *value = new ADDvalueDialog();
+    ADDvalueDialog *value = new ADDvalueDialog(m_userName);
     value->show();
 }
 
@@ -53,12 +53,10 @@ void MainPage::logout()
     close(); // Fermez la fenêtre MainPage
 }
 
-
-
-
 void MainPage::on_addSectionButton_clicked()
 {
     ADDrubriquesDialog *rubrique = new ADDrubriquesDialog();
     rubrique->show();
+
 }
 

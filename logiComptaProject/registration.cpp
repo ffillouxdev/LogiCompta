@@ -16,7 +16,7 @@ Registration::Registration(QWidget *parent) :
     qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
 
     db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
+    db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C . C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
     if(db.open())
     {
         qDebug() << "Connected!";
