@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+#include <QSql>
 
 
 #include "addvaluedialog.h"
@@ -24,8 +25,9 @@ class MainPage : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainPage(QWidget *parent = nullptr);
+    explicit MainPage(const QString &userName, QWidget *parent = nullptr);
     ~MainPage();
+    int getUserId(const QString &userName);
     void setUserName(const QString &userName);
     void logout();
 
@@ -37,8 +39,12 @@ private slots:
 
     void on_addSectionButton_clicked();
 
+    void setCompteur();
+
+
 private:
     Ui::MainPage *ui;
+    QSqlDatabase db;
     QString m_userName;
     profilDialog *profil;
 

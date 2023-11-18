@@ -61,7 +61,7 @@ void Login::on_loginbutton_clicked()
                 cout << "username and password matched.";
                 //connect page popup
                 this->hide();
-                MainPage *mainpage = new  MainPage();
+                MainPage *mainpage = new  MainPage(userName);
                 mainpage->setUserName(userName);
                 mainpage->show();
             }

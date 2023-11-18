@@ -47,7 +47,6 @@ ADDvalueDialog::ADDvalueDialog(const QString &userName, QWidget *parent) :
             qDebug() << "Failed to retrieve sections from the database";
         }
     }
-
 }
 
 ADDvalueDialog::~ADDvalueDialog()
