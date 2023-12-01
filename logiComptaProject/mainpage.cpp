@@ -1,6 +1,8 @@
 #include "mainpage.h"
 #include "ui_mainpage.h"
 
+#include "addvaluedialog.h"
+
 #include <iostream>
 #include <QDialog>
 using namespace std;
@@ -44,7 +46,7 @@ MainPage::~MainPage()
 
 void MainPage::on_invoiceButton_clicked()
 {
-    ADDvalueDialog *value = new ADDvalueDialog(m_userName);
+    ADDvalueDialog *value = new ADDvalueDialog(*this, m_userName);
     value->show();
 }
 
@@ -107,6 +109,7 @@ int MainPage::getUserId(const QString &userName)
 void MainPage::setCompteur() {
     int id_user = getUserId(m_userName);
 
+    qDebug() << "ok";
     if (db.open()) {
         QSqlQuery query(db);
         qDebug() << id_user;
@@ -135,3 +138,10 @@ void MainPage::setCompteur() {
         db.close();
     }
 }
+
+void MainPage::on_listSectionsPushButton_clicked()
+{
+    sectionList *SectionList = new sectionList(*this, m_userName);
+    SectionList->show();
+}
+

@@ -1,31 +1,27 @@
 #include "addvaluedialog.h"
 #include "ui_addvaluedialog.h"
 
-#include "connexion_sqlite.h"
 
-#include <iostream>
 
 using namespace std;
 
-ADDvalueDialog::ADDvalueDialog(const QString &userName, QWidget *parent) :
+ADDvalueDialog::ADDvalueDialog(MainPage &mainPage, const QString &userName, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::ADDvalueDialog)
+    ui(new Ui::ADDvalueDialog),
+    mainPageRef(mainPage)
 {
     ui->setupUi(this);
     setWindowTitle("Add Values");
 
     // Database
-    qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
+    qDebug() << QSqlDatabase::drivers(); // List of available database drivers
 
-    db=QSqlDatabase::addDatabase("QSQLITE");
+    db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C . C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
 
-    if(db.open())
-    {
+    if (db.open()) {
         qDebug() << "Connected!";
-    }
-    else
-    {
+    } else {
         qDebug() << "Failed to connect..." << db.lastError().text();
     }
 
@@ -35,22 +31,27 @@ ADDvalueDialog::ADDvalueDialog(const QString &userName, QWidget *parent) :
     // afficher toutes les rubriques de la dans la combobox en comboboxItems
     if (db.open()) {
         QSqlQuery query(db);
+        int id_user = getUserId(userName);
+        query.prepare("SELECT name_section FROM sections WHERE id_user = :id_user;");
+        query.bindValue(":id_user", id_user);
 
         // Charger les rubriques depuis la base de données
-        if (query.exec("SELECT name_section FROM sections")) {
+        if (query.exec()) {
             while (query.next()) {
                 QString sectionName = query.value(0).toString();
-                // Ajouter chaque rubrique à la combobox
                 ui->sectionComboBox->addItem(sectionName);
             }
+            db.close();  // on ferme la bd apres la boucle
         } else {
             qDebug() << "Failed to retrieve sections from the database";
         }
     }
 }
 
+
 ADDvalueDialog::~ADDvalueDialog()
 {
+    db.close();
     delete ui;
 }
 
@@ -66,7 +67,8 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
     QString date = ui->dateEdit->date().toString("yyyy-MM-dd");
     QString sectionLogiCompta = ui->sectionComboBox->currentText();
     QString amountStr = ui->amountLineEdit->text(); // Changer le nom pour éviter la confusion avec la variable "amount" dans la BD
-    double amount = amountStr.toDouble(); // Convertir la chaîne en double
+    double amount = amountStr.toDouble(); // Converti la chaîne en double
+    QString name = ui->nameLineEdit->text();
 
     int id_user = getUserId(nameUser); // On appelle la fonction qui récupère l'id de l'utilisateur actuel
     int id_section = getSectionId(sectionLogiCompta);
@@ -75,20 +77,25 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
         QSqlQuery query(db);
 
         // On insert les valeurs dans invoices
-        query.prepare("INSERT INTO invoices (id_user, amount, date, id_section) VALUES (:id_user, :amount, :date, :id_section)");
+        query.prepare("INSERT INTO invoices (id_user, amount, name, date, id_section) VALUES (:id_user, :amount, :name, :date, :id_section)");
         query.bindValue(":id_user", id_user);
-        query.bindValue(":amount", amount); // Utiliser la variable convertie
+        query.bindValue(":amount", amount);
+        query.bindValue(":name", name);
         query.bindValue(":date", date);
         query.bindValue(":id_section", id_section);
 
+
         // Afficher les valeurs dans la console
-        qDebug() << id_user << amount << date << id_section;
+        qDebug() << id_user << amount << name << date << id_section;
 
         if (query.exec()) {
             // Enregistrement réussi
             QMessageBox::information(this, "Registration", "Adding the invoice successful.");
             // Réinitialisez les champs de QMessageBox après un enregistrement réussi si nécessaire
             QSqlDatabase::database().commit();
+            mainPageRef.setCompteur();
+            ui->amountLineEdit->clear();
+            ui->nameLineEdit->clear();
             ui->dateEdit->clear();
             this->close();
         } else {
@@ -123,7 +130,6 @@ int ADDvalueDialog::getUserId(const QString &userName)
         }
 
         QSqlDatabase::database().commit();
-        db.close();
     } else {
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }
@@ -151,7 +157,6 @@ int ADDvalueDialog::getSectionId(const QString &section)
         }
 
         QSqlDatabase::database().commit();
-        db.close();
     } else {
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }

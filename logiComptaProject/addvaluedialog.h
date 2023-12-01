@@ -3,8 +3,12 @@
 
 #include <iostream>
 #include <QDialog>
+
+#include "mainpage.h"
 #include "connexion_sqlite.h"
 #include "qsqldatabase.h"
+
+
 #include <QDialog>
 #include <QSql>
 #include <QMessageBox>
@@ -19,7 +23,7 @@ class ADDvalueDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ADDvalueDialog(const QString &userName, QWidget *parent = nullptr);
+    explicit ADDvalueDialog(MainPage &mainPage, const QString &userName, QWidget *parent = nullptr);
     ~ADDvalueDialog();
     int getUserId(const QString &userName);
     int getSectionId(const QString &section);
@@ -34,6 +38,7 @@ private:
     Ui::ADDvalueDialog *ui;
     QSqlDatabase db;
     QString nameUser;
+    MainPage &mainPageRef;
 };
 
 #endif // ADDVALUEDIALOG_H

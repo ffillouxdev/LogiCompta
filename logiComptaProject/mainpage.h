@@ -10,10 +10,9 @@
 #include <QSql>
 
 
-#include "addvaluedialog.h"
 #include "addrubriquesdialog.h"
 #include "profildialog.h"
-
+#include "sectionlist.h"
 
 
 namespace Ui {
@@ -30,6 +29,7 @@ public:
     int getUserId(const QString &userName);
     void setUserName(const QString &userName);
     void logout();
+    void setCompteur();
 
 
 private slots:
@@ -39,8 +39,9 @@ private slots:
 
     void on_addSectionButton_clicked();
 
-    void setCompteur();
 
+
+    void on_listSectionsPushButton_clicked();
 
 private:
     Ui::MainPage *ui;
