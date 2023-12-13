@@ -39,9 +39,11 @@ private slots:
 
     void on_addSectionButton_clicked();
 
-
-
     void on_listSectionsPushButton_clicked();
+
+
+
+    void on_listInvoicesPushButton_clicked();
 
 private:
     Ui::MainPage *ui;

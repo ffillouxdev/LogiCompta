@@ -145,3 +145,9 @@ void MainPage::on_listSectionsPushButton_clicked()
     SectionList->show();
 }
 
+
+void MainPage::on_listInvoicesPushButton_clicked()
+{
+
+}
+
