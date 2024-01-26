@@ -97,6 +97,7 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
             ui->amountLineEdit->clear();
             ui->nameLineEdit->clear();
             ui->dateEdit->clear();
+            mainPageRef.setCompteur();
             this->close();
         } else {
             // Échec de l'enregistrement

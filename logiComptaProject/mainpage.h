@@ -41,8 +41,6 @@ private slots:
 
     void on_listSectionsPushButton_clicked();
 
-
-
     void on_listInvoicesPushButton_clicked();
 
 private:

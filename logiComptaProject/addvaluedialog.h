@@ -28,7 +28,6 @@ public:
     int getUserId(const QString &userName);
     int getSectionId(const QString &section);
 
-
 private slots:
     void on_CancelpushButton_clicked();
 
@@ -40,5 +39,8 @@ private:
     QString nameUser;
     MainPage &mainPageRef;
 };
+
+
+
 
 #endif // ADDVALUEDIALOG_H
