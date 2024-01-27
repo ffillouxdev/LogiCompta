@@ -35,12 +35,14 @@ export default function Main() {
                                 altText="windows logo"
                                 osName="Windows"
                                 version="1.0.0"
+                                fileName="README.md"
                             />
                             <OSButton
                                 logoSrc={logoLinux}
                                 altText="linux logo"
                                 osName="Linux"
                                 version="1.0.0"
+                                fileName="README.md"
                             />
                         </div>
                     </div>

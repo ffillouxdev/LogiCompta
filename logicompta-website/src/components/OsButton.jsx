@@ -1,13 +1,26 @@
 import React from "react";
 
-const OSButton = ({ logoSrc, altText, osName, version }) => (
-    <button className={`${osName.toLowerCase()} buttonChoice`}>
-        <img src={logoSrc} alt={altText} />
-        <div className="text-div">
-            <h3>{osName}</h3>
-            <p>{`Version-${version}`}</p>
-        </div>
-    </button>
-);
+export default function OSButton({ logoSrc, altText, osName, version, fileName }) {
+    const handleDownload = () => {
+        const filePath = `/downloads/${fileName}`;
 
-export default OSButton;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = process.env.PUBLIC_URL + filePath;
+        downloadLink.download = fileName;
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+        document.body.removeChild(downloadLink);
+    };
+
+    return (
+        <button className={`${osName.toLowerCase()} buttonChoice`} onClick={handleDownload}>
+            <img src={logoSrc} alt={altText} />
+            <div className="text-div">
+                <h3>{osName}</h3>
+                <p>{`Version-${version}`}</p>
+            </div>
+        </button>
+    );
+};
