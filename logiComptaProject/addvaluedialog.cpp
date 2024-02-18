@@ -2,7 +2,6 @@
 #include "ui_addvaluedialog.h"
 
 
-
 using namespace std;
 
 ADDvalueDialog::ADDvalueDialog(MainPage &mainPage, const QString &userName, QWidget *parent) :

@@ -25,6 +25,9 @@ Registration::Registration(QWidget *parent) :
     {
         qDebug() << "Failed to connect..." << db.lastError().text();
     }
+
+    connect(ui->confirmPassLineEdit, &QLineEdit::returnPressed, this, &Registration::on_confirmButton_clicked);
+
 }
 
 Registration::~Registration()

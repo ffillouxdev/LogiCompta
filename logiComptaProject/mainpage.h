@@ -10,10 +10,8 @@
 #include <QSql>
 
 
-#include "addrubriquesdialog.h"
 #include "profildialog.h"
 #include "sectionlist.h"
-
 
 namespace Ui {
 class MainPage;
@@ -48,7 +46,9 @@ private:
     QSqlDatabase db;
     QString m_userName;
     profilDialog *profil;
-
+    profilDialog *profilDialogInstance = nullptr;
+    ADDrubriquesDialog *rubriqueDialog = nullptr;
+    sectionList *sectionListDialog = nullptr;
 };
 
 #endif // MAINPAGE_H

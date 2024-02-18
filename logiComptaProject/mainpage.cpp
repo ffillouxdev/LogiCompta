@@ -1,6 +1,5 @@
 #include "mainpage.h"
 #include "ui_mainpage.h"
-
 #include "addvaluedialog.h"
 
 #include <iostream>
@@ -46,18 +45,23 @@ MainPage::~MainPage()
 
 void MainPage::on_invoiceButton_clicked()
 {
+
     ADDvalueDialog *value = new ADDvalueDialog(*this, m_userName);
     value->show();
 }
 
-
 void MainPage::on_ProfilpushButton_clicked()
 {
-    // Open user profil popup
-    profilDialog *profil = new profilDialog(m_userName);
-    connect(profil, &profilDialog::logoutRequested, this, &MainPage::logout);
-    profil->show();
-
+    if (!profilDialogInstance) {
+        profilDialogInstance = new profilDialog(m_userName);
+        profilDialogInstance->setAttribute(Qt::WA_DeleteOnClose);
+        connect(profilDialogInstance, &profilDialog::logoutRequested, this, &MainPage::logout);
+        connect(profilDialogInstance, &QObject::destroyed, this, [=]() { profilDialogInstance = nullptr; });
+        profilDialogInstance->show();
+    } else {
+        profilDialogInstance->raise();
+        profilDialogInstance->activateWindow();
+    }
 }
 
 void MainPage::setUserName(const QString &userName)
@@ -73,9 +77,15 @@ void MainPage::logout()
 
 void MainPage::on_addSectionButton_clicked()
 {
-    ADDrubriquesDialog *rubrique = new ADDrubriquesDialog();
-    rubrique->show();
-
+    if (!rubriqueDialog) {
+        rubriqueDialog = new ADDrubriquesDialog();
+        rubriqueDialog->setAttribute(Qt::WA_DeleteOnClose);
+        connect(rubriqueDialog, &QObject::destroyed, this, [=]() { rubriqueDialog = nullptr; });
+        rubriqueDialog->show();
+    } else {
+        rubriqueDialog->raise();
+        rubriqueDialog->activateWindow();
+    }
 }
 
 int MainPage::getUserId(const QString &userName)
@@ -141,8 +151,15 @@ void MainPage::setCompteur() {
 
 void MainPage::on_listSectionsPushButton_clicked()
 {
-    sectionList *SectionList = new sectionList(*this, m_userName);
-    SectionList->show();
+    if (!sectionListDialog) {
+        sectionListDialog = new sectionList(*this, m_userName);
+        sectionListDialog->setAttribute(Qt::WA_DeleteOnClose);
+        connect(sectionListDialog, &QObject::destroyed, this, [=]() { sectionListDialog = nullptr; });
+        sectionListDialog->show();
+    } else {
+        sectionListDialog->raise();
+        sectionListDialog->activateWindow();
+    }
 }
 
 

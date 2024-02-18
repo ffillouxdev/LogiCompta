@@ -8,6 +8,7 @@
 #include <QtCore>
 #include <QSqlError>
 
+
 //https://www.wampserver.com/
 static bool reelconnexionDB()
 {

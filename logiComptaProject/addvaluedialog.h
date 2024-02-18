@@ -4,10 +4,8 @@
 #include <iostream>
 #include <QDialog>
 
-#include "mainpage.h"
-#include "connexion_sqlite.h"
 #include "qsqldatabase.h"
-
+#include "mainpage.h"
 
 #include <QDialog>
 #include <QSql>

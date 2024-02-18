@@ -18,6 +18,8 @@ Login::Login(QWidget *parent):
     ui->usernameInput->setPlaceholderText("User Name");
     ui->passwordInput->setPlaceholderText("Password");
 
+    connect(ui->passwordInput, &QLineEdit::returnPressed, this, &Login::on_loginbutton_clicked);
+
     // Database
     qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
 
