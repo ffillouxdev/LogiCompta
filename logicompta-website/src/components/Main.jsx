@@ -117,7 +117,7 @@ export default function Main() {
                             </div>
                             <form action="">
                                 <input type="text" placeholder="Entrer votre nom" />
-                                <input type="text" placeholder="Entrer une adresse email valide" />
+                                <input type="text" placeholder="Entrer une adresse email" />
                                 <textarea name="" id="" placeholder="Entrer votre message " cols="30" rows="10"></textarea>
                                 <button>ENVOYER</button>
                             </form>

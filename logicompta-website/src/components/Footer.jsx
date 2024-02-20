@@ -7,7 +7,7 @@ export default function Footer() {
                 <hr />
                 <div className="redirection-links">
                     <ul>
-                        <li><a href="#top">Retourner en haut</a></li>
+                        <li><a href="#top">Retour en haut</a></li>
                         <li><a href="#Contact">Contact</a></li>
                         <li><a href="#A_propos">A propos</a></li>
                     </ul>
