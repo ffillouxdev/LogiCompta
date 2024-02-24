@@ -156,6 +156,12 @@ QLineEdit{
            <height>40</height>
           </size>
          </property>
+         <property name="maxLength">
+          <number>100</number>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
         </widget>
        </item>
        <item>
@@ -184,6 +190,9 @@ QLineEdit{
            <width>250</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
         </widget>
        </item>

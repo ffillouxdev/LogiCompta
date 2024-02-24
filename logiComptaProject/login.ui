@@ -85,7 +85,7 @@ QLineEdit{
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>Bienvenue sur LogiCompta</string>
+          <string>Welcome to LogiCompta</string>
          </property>
          <property name="margin">
           <number>35</number>
@@ -215,7 +215,7 @@ QPushButton:hover {
 </string>
          </property>
          <property name="text">
-          <string>pas encore de compte ? inscrivez-vous !</string>
+          <string>no account yet? register!</string>
          </property>
         </widget>
        </item>

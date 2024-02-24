@@ -104,9 +104,9 @@
   <widget class="QLabel" name="happylabel">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>40</y>
-     <width>49</width>
+     <width>41</width>
      <height>21</height>
     </rect>
    </property>
@@ -124,7 +124,7 @@
   <widget class="QLabel" name="hellolabel">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>150</x>
      <y>40</y>
      <width>161</width>
      <height>20</height>
@@ -165,9 +165,9 @@
   <widget class="QLabel" name="nameLabel">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>60</x>
      <y>40</y>
-     <width>101</width>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>

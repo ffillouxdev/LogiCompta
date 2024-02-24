@@ -6,63 +6,76 @@ invoicesList::invoicesList(const QString &userName, QWidget *parent) :
     ui(new Ui::invoicesList)
 {
     ui->setupUi(this);
-    qDebug() << QSqlDatabase::drivers(); // List of available database drivers
+    qDebug() << QSqlDatabase::drivers();
 
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C . C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
 
-    if (db.open()) {
-        qDebug() << "Connected!";
-    } else {
+    if (!db.open()) {
         qDebug() << "Failed to connect..." << db.lastError().text();
-        // Add appropriate error handling here
-        return;  // Exit the constructor if the database connection fails
+        return;
     }
 
     QSqlQueryModel *modal = new QSqlQueryModel();
-    QSqlQuery *qry = new QSqlQuery(db);
     int user_id = getUserId(userName);
-    qry->bindValue(":user_id", user_id);
 
-    qry->prepare("SELECT sections.name_section, login_register.username FROM sections JOIN login_register ON sections.id_user = login_register.id_user WHERE sections.id_user = " + QString::number(user_id));
-    if (qry->exec()) {
-        modal->setQuery(*qry);
+    // afficher toutes les rubriques de la dans la combobox en comboboxItems
+    QSqlQuery query(db);
+    query.prepare("SELECT name_section FROM sections WHERE id_user = :id_user;");
+    query.bindValue(":id_user", user_id);
+
+    // Charger les rubriques depuis la base de données
+    if (query.exec()) {
+        while (query.next()) {
+            QString sectionName = query.value(0).toString();
+            ui->ActualSectionComboBox->addItem(sectionName);
+        }
+    } else {
+        qDebug() << "Failed to retrieve sections from the database";
+    }
+
+    query.prepare("SELECT DISTINCT invoices.amount, invoices.name, invoices.date FROM invoices JOIN sections ON invoices.id_user = "
+                  "sections.id_user JOIN login_register ON sections.id_user = login_register.id_user WHERE sections.id_user = :user_id"
+                  /*"AND invoices.id_section = :section_id"*/);
+    query.bindValue(":user_id", user_id);
+    /*query.bindValue(":section_id");*/
+    if (query.exec()) {
+        modal->setQuery(query);
 
         int rows = modal->rowCount();
         int columns = modal->columnCount();
 
-        // Set the number of rows and columns for your QTableWidget
-        /*ui->tableWidget->setRowCount(rows);
-        ui->tableWidget->setColumnCount(columns);*/
+        ui->InvoicesTableWidget->setRowCount(rows);
+        ui->InvoicesTableWidget->setColumnCount(columns);
+
+        QStringList headers;
+        headers << "Amount" << "Name" << "Date";
+        ui->InvoicesTableWidget->setHorizontalHeaderLabels(headers);
 
         for (int row = 0; row < rows; ++row) {
             for (int column = 0; column < columns; ++column) {
-                // Set the item for each cell
-                //ui->tableWidget->setItem(row, column, new QTableWidgetItem(modal->data(modal->index(row, column)).toString()));
+                ui->InvoicesTableWidget->setItem(row, column, new QTableWidgetItem(modal->data(modal->index(row, column)).toString()));
             }
         }
 
         qDebug() << "Number of rows:" << rows;
     } else {
-        qDebug() << "Query failed:" << qry->lastError().text();
-        // Add appropriate error handling here
+        qDebug() << "Query failed:" << query.lastError().text();
     }
-}
 
+    db.close();
+}
 
 invoicesList::~invoicesList()
 {
     delete ui;
 }
 
-
 int invoicesList::getUserId(const QString &userName)
 {
     int userId = -1;
 
     if (db.open()) {
-        QSqlDatabase::database().transaction();
-
         QSqlQuery query(db);
         query.prepare("SELECT id_user FROM login_register WHERE username = :username;");
         query.bindValue(":username", userName);
@@ -73,8 +86,6 @@ int invoicesList::getUserId(const QString &userName)
         } else {
             qDebug() << "Query failed or no user found for username:" << userName;
         }
-
-        QSqlDatabase::database().commit();
     } else {
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }
@@ -83,14 +94,11 @@ int invoicesList::getUserId(const QString &userName)
     return userId;
 }
 
-
 int invoicesList::getSectionId(const QString &section)
 {
     int sectionId = -1;
 
     if (db.open()){
-        QSqlDatabase::database().transaction();
-
         QSqlQuery query(db);
         query.prepare("SELECT id_section FROM sections WHERE name_section = :sectionName;");
         query.bindValue(":sectionName", section);
@@ -101,8 +109,6 @@ int invoicesList::getSectionId(const QString &section)
         } else {
             qDebug() << "Query failed or no user found for sectionName:" << section;
         }
-
-        QSqlDatabase::database().commit();
     } else {
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }

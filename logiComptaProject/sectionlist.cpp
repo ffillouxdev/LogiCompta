@@ -6,7 +6,7 @@ sectionList::sectionList(MainPage &mainPage, const QString &userName, QWidget *p
     ui(new Ui::sectionList)
 {
     ui->setupUi(this);
-    qDebug() << QSqlDatabase::drivers(); // List of available database drivers
+    qDebug() << QSqlDatabase::drivers();
 
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C . C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
@@ -15,8 +15,7 @@ sectionList::sectionList(MainPage &mainPage, const QString &userName, QWidget *p
         qDebug() << "Connected!";
     } else {
         qDebug() << "Failed to connect..." << db.lastError().text();
-        // Add appropriate error handling here
-        return;  // Exit the constructor if the database connection fails
+        return;
     }
 
     QSqlQueryModel *modal = new QSqlQueryModel();
@@ -31,13 +30,15 @@ sectionList::sectionList(MainPage &mainPage, const QString &userName, QWidget *p
         int rows = modal->rowCount();
         int columns = modal->columnCount();
 
-        // Set the number of rows and columns for your QTableWidget
         ui->tableWidget->setRowCount(rows);
         ui->tableWidget->setColumnCount(columns);
 
+        QStringList headers;
+        headers << "name_section" << "username";
+        ui->tableWidget->setHorizontalHeaderLabels(headers);
+
         for (int row = 0; row < rows; ++row) {
             for (int column = 0; column < columns; ++column) {
-                // Set the item for each cell
                 ui->tableWidget->setItem(row, column, new QTableWidgetItem(modal->data(modal->index(row, column)).toString()));
             }
         }
@@ -45,7 +46,6 @@ sectionList::sectionList(MainPage &mainPage, const QString &userName, QWidget *p
         qDebug() << "Number of rows:" << rows;
     } else {
         qDebug() << "Query failed:" << qry->lastError().text();
-        // Add appropriate error handling here
     }
 }
 

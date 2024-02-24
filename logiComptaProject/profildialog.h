@@ -1,7 +1,24 @@
 #ifndef PROFILDIALOG_H
 #define PROFILDIALOG_H
 
+
 #include <QDialog>
+#include <QSql>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include <iostream>
+#include <QSqlQueryModel>
+#include <QMainWindow>
+#include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
+
+
+
+
 
 namespace Ui {
 class profilDialog;

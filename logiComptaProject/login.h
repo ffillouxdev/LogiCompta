@@ -4,11 +4,22 @@
 #include <QMainWindow>
 #include <QMessageBox>
 
-#include "connexion_sqlite.h"
+#include <QDialog>
+#include <QSql>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include <iostream>
+#include <QSqlQueryModel>
+#include <QMainWindow>
+#include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
+
 #include "mainpage.h"
 #include "registration.h"
-
-#include <QSql>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }

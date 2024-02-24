@@ -2,8 +2,7 @@
 #include "ui_mainpage.h"
 #include "addvaluedialog.h"
 
-#include <iostream>
-#include <QDialog>
+
 using namespace std;
 
 
@@ -39,16 +38,26 @@ MainPage::MainPage(const QString &userName, QWidget *parent) :
 
 MainPage::~MainPage()
 {
-     db.close();
+    db.close();
     delete ui;
 }
 
 void MainPage::on_invoiceButton_clicked()
 {
-
-    ADDvalueDialog *value = new ADDvalueDialog(*this, m_userName);
-    value->show();
+    qDebug() << "invoiceButton clicked";
+    if (!addValueInstance || addValueInstance->isHidden()) {
+        addValueInstance = new ADDvalueDialog(*this, m_userName);
+        addValueInstance->setAttribute(Qt::WA_DeleteOnClose);
+        connect(addValueInstance, &QObject::destroyed, this, [&]() { addValueInstance = nullptr; });
+        addValueInstance->show();
+    } else {
+        addValueInstance->raise();
+        addValueInstance->activateWindow();
+    }
 }
+
+
+
 
 void MainPage::on_ProfilpushButton_clicked()
 {
@@ -78,7 +87,7 @@ void MainPage::logout()
 void MainPage::on_addSectionButton_clicked()
 {
     if (!rubriqueDialog) {
-        rubriqueDialog = new ADDrubriquesDialog();
+        rubriqueDialog = new ADDrubriquesDialog(m_userName);
         rubriqueDialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(rubriqueDialog, &QObject::destroyed, this, [=]() { rubriqueDialog = nullptr; });
         rubriqueDialog->show();
@@ -119,7 +128,6 @@ int MainPage::getUserId(const QString &userName)
 void MainPage::setCompteur() {
     int id_user = getUserId(m_userName);
 
-    qDebug() << "ok";
     if (db.open()) {
         QSqlQuery query(db);
         qDebug() << id_user;
@@ -130,6 +138,7 @@ void MainPage::setCompteur() {
         if (query.exec()) {
             if (query.next()) {
                 QString amount = query.value(0).toString();
+                currentValue = amount;
                 qDebug() << amount;
                 if(amount == ""){
                     ui->counter->setPlaceholderText("0.0");
@@ -149,6 +158,17 @@ void MainPage::setCompteur() {
     }
 }
 
+void MainPage::putNewVal(int amount) {
+    // On récup la valeur actuelle du compteur
+    int currentValueInt = currentValue.toInt();
+    // On ajoute le param 'amount' à la valeur actuelle
+    int updatedValue = currentValueInt + amount;
+    //MAJ du texte du compteur avec la nouvelle valeur
+    ui->counter->setPlaceholderText(QString::number(updatedValue));
+}
+
+
+
 void MainPage::on_listSectionsPushButton_clicked()
 {
     if (!sectionListDialog) {
@@ -165,6 +185,15 @@ void MainPage::on_listSectionsPushButton_clicked()
 
 void MainPage::on_listInvoicesPushButton_clicked()
 {
-
+    if (!invoicesListValueInstance) {
+        invoicesListValueInstance = new invoicesList(m_userName);
+        invoicesListValueInstance->setAttribute(Qt::WA_DeleteOnClose);
+        connect(invoicesListValueInstance, &QObject::destroyed, this, [=]() {invoicesListValueInstance = nullptr; });
+        invoicesListValueInstance->show();
+    } else{
+        invoicesListValueInstance->raise();
+        invoicesListValueInstance->activateWindow();
+    }
 }
+
 

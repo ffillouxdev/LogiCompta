@@ -1,11 +1,20 @@
 #ifndef ADDRUBRIQUESDIALOG_H
 #define ADDRUBRIQUESDIALOG_H
 
-#include "connexion_sqlite.h"
-#include "qsqldatabase.h"
+
 #include <QDialog>
 #include <QSql>
 #include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include <iostream>
+#include <QSqlQueryModel>
+#include <QMainWindow>
+#include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
 
 namespace Ui {
 class ADDrubriquesDialog;
@@ -16,8 +25,10 @@ class ADDrubriquesDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ADDrubriquesDialog(QWidget *parent = nullptr);
+    explicit ADDrubriquesDialog(const QString &userName, QWidget *parent = nullptr);
     ~ADDrubriquesDialog();
+    int getUserId(const QString &userName);
+
 
 private slots:
     void on_CancelpushButton_clicked();
@@ -27,6 +38,7 @@ private slots:
 private:
     Ui::ADDrubriquesDialog *ui;
     QSqlDatabase db;
+    QString nameUser;
 };
 
 #endif // ADDRUBRIQUESDIALOG_H

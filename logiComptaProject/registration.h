@@ -1,11 +1,22 @@
 #ifndef REGISTRATION_H
 #define REGISTRATION_H
 
-#include "connexion_sqlite.h"
 
-
+#include <QDialog>
+#include <QSql>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include <iostream>
+#include <QSqlQueryModel>
 #include <QMainWindow>
+#include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
 
+#include "login.h"
 
 namespace Ui {
 class Registration;

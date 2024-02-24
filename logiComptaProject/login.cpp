@@ -1,9 +1,6 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include <QMessageBox>
-#include <QString>
-#include <iostream>
 
 using namespace std;
 

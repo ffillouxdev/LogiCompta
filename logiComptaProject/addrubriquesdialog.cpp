@@ -1,9 +1,8 @@
 #include "addrubriquesdialog.h"
 #include "ui_addrubriquesdialog.h"
 
-#include "connexion_sqlite.h"
 
-ADDrubriquesDialog::ADDrubriquesDialog(QWidget *parent) :
+ADDrubriquesDialog::ADDrubriquesDialog(const QString &userName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ADDrubriquesDialog)
 {
@@ -27,6 +26,8 @@ ADDrubriquesDialog::ADDrubriquesDialog(QWidget *parent) :
     {
         qDebug() << "Failed to connect..." << db.lastError().text();
     }
+
+    nameUser = userName;
 }
 
 ADDrubriquesDialog::~ADDrubriquesDialog()
@@ -46,12 +47,14 @@ void ADDrubriquesDialog::on_AcceptpushButton_clicked()
     // add in the database a new 'section'
     QSqlDatabase::database().transaction();
     QString name_section = ui->rubriqueLineEdit->text();
+    int user_id = getUserId(nameUser);
 
     //connecting to SQLITE db
     if (db.open()) {
         QSqlQuery query(db);
-        query.prepare("INSERT INTO sections (name_section) VALUES (:name_section)");
+        query.prepare("INSERT INTO sections (name_section, id_user) VALUES (:name_section,:id_user)");
         query.bindValue(":name_section", name_section);
+        query.bindValue(":id_user", user_id);
 
         if (query.exec()) {
             // Enregistrement réussi
@@ -72,4 +75,34 @@ void ADDrubriquesDialog::on_AcceptpushButton_clicked()
     }
 }
 
+
+
+
+
+int ADDrubriquesDialog::getUserId(const QString &userName)
+{
+    int userId = -1;
+
+    if (db.open()) {
+        QSqlDatabase::database().transaction();
+
+        QSqlQuery query(db);
+        query.prepare("SELECT id_user FROM login_register WHERE username = :username;");
+        query.bindValue(":username", userName);
+
+        if (query.exec() && query.next()) {
+            userId = query.value(0).toInt();
+            qDebug() << "User ID for" << userName << "is" << userId;
+        } else {
+            qDebug() << "Query failed or no user found for username:" << userName;
+        }
+
+        QSqlDatabase::database().commit();
+    } else {
+        qDebug() << "Failed to open database connection: " << db.lastError().text();
+    }
+
+    qDebug() << "User ID for" << userName << "is" << userId;
+    return userId;
+}
 

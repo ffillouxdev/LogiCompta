@@ -1,16 +1,24 @@
 #ifndef SECTIONLIST_H
 #define SECTIONLIST_H
 
-#include <QDialog>
-#include <QSql>
-#include <QDebug>
+
 
 class MainPage;  // Forward declaration
 
-#include "connexion_sqlite.h"
 
+#include <QDialog>
+#include <QSql>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
 #include <iostream>
 #include <QSqlQueryModel>
+#include <QMainWindow>
+#include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
 
 namespace Ui {
 class sectionList;

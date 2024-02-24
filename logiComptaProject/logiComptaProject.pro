@@ -23,7 +23,6 @@ SOURCES += \
 HEADERS += \
     addrubriquesdialog.h \
     addvaluedialog.h \
-    connexion_sqlite.h \
     invoiceslist.h \
     login.h \
     mainpage.h \

@@ -1,21 +1,33 @@
 #ifndef MAINPAGE_H
 #define MAINPAGE_H
 
-#include <QMainWindow>
-#include <QMessageBox>
+
 #include <QDialog>
+#include <QSql>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include <iostream>
+#include <QSqlQueryModel>
+#include <QMainWindow>
+#include <QSqlDatabase>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
-#include <QSql>
-
 
 #include "profildialog.h"
+#include "addrubriquesdialog.h"
 #include "sectionlist.h"
+#include "invoiceslist.h"
+
+
 
 namespace Ui {
 class MainPage;
 }
+
+class ADDvalueDialog;
 
 class MainPage : public QMainWindow
 {
@@ -28,6 +40,7 @@ public:
     void setUserName(const QString &userName);
     void logout();
     void setCompteur();
+    void putNewVal(int amount);
 
 
 private slots:
@@ -41,14 +54,17 @@ private slots:
 
     void on_listInvoicesPushButton_clicked();
 
+
 private:
     Ui::MainPage *ui;
     QSqlDatabase db;
     QString m_userName;
-    profilDialog *profil;
+    QString currentValue;
     profilDialog *profilDialogInstance = nullptr;
     ADDrubriquesDialog *rubriqueDialog = nullptr;
     sectionList *sectionListDialog = nullptr;
+    ADDvalueDialog *addValueInstance = nullptr;
+    invoicesList *invoicesListValueInstance = nullptr;
 };
 
 #endif // MAINPAGE_H

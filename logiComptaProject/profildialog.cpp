@@ -1,9 +1,6 @@
 #include "profildialog.h"
 #include "ui_profildialog.h"
-
 #include "login.h"
-#include <iostream>
-#include <QMessageBox>
 
 profilDialog::profilDialog(const QString &userName, QWidget *parent) :
     QDialog(parent),

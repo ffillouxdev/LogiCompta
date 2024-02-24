@@ -1,16 +1,23 @@
 #ifndef ADDVALUEDIALOG_H
 #define ADDVALUEDIALOG_H
 
-#include <iostream>
-#include <QDialog>
 
-#include "qsqldatabase.h"
-#include "mainpage.h"
 
 #include <QDialog>
 #include <QSql>
 #include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include <iostream>
+#include <QSqlQueryModel>
+#include <QMainWindow>
+#include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
 
+#include "mainpage.h"
 
 namespace Ui {
 class ADDvalueDialog;

@@ -93,6 +93,7 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
             // Réinitialisez les champs de QMessageBox après un enregistrement réussi si nécessaire
             QSqlDatabase::database().commit();
             mainPageRef.setCompteur();
+            mainPageRef.putNewVal(amount);
             ui->amountLineEdit->clear();
             ui->nameLineEdit->clear();
             ui->dateEdit->clear();

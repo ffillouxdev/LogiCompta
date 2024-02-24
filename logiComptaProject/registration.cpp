@@ -1,8 +1,6 @@
 #include "registration.h"
 #include "ui_registration.h"
 
-#include "login.h"
-#include "connexion_sqlite.h"
 
 Registration::Registration(QWidget *parent) :
     QMainWindow(parent),
