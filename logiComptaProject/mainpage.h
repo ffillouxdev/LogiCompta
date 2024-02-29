@@ -54,7 +54,6 @@ private slots:
 
     void on_listInvoicesPushButton_clicked();
 
-
 private:
     Ui::MainPage *ui;
     QSqlDatabase db;

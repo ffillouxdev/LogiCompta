@@ -33,7 +33,6 @@ MainPage::MainPage(const QString &userName, QWidget *parent) :
     }
     setCompteur();
     ui->counter->setEnabled(false);
-
 }
 
 MainPage::~MainPage()
@@ -57,12 +56,11 @@ void MainPage::on_invoiceButton_clicked()
 }
 
 
-
-
 void MainPage::on_ProfilpushButton_clicked()
 {
     if (!profilDialogInstance) {
-        profilDialogInstance = new profilDialog(m_userName);
+        // Initialisez profilDialogInstance avec le nom d'utilisateur
+        profilDialogInstance = new profilDialog(m_userName, this);
         profilDialogInstance->setAttribute(Qt::WA_DeleteOnClose);
         connect(profilDialogInstance, &profilDialog::logoutRequested, this, &MainPage::logout);
         connect(profilDialogInstance, &QObject::destroyed, this, [=]() { profilDialogInstance = nullptr; });
@@ -72,6 +70,7 @@ void MainPage::on_ProfilpushButton_clicked()
         profilDialogInstance->activateWindow();
     }
 }
+
 
 void MainPage::setUserName(const QString &userName)
 {
@@ -141,17 +140,19 @@ void MainPage::setCompteur() {
                 currentValue = amount;
                 qDebug() << amount;
                 if(amount == ""){
-                    ui->counter->setPlaceholderText("0.0");
+                    ui->counter->setText("0.0");
+                    ui->counter->setStyleSheet("color: #333333;");
                 }else{
-                    ui->counter->setPlaceholderText(amount);
+                    ui->counter->setText(amount);
+                    ui->counter->setStyleSheet("color: #333333;");
                 }
             } else {
                 qDebug() << "Aucun résultat trouvé pour l'utilisateur avec l'ID : " << id_user;
-                ui->counter->setPlaceholderText("0.0");
+                ui->counter->setText("0.0");
             }
         } else {
             qDebug() << "Erreur d'execution de la requete : " << query.lastError().text();
-            ui->counter->setPlaceholderText("0.0");
+            ui->counter->setText("0.0");
         }
 
         db.close();
@@ -164,7 +165,9 @@ void MainPage::putNewVal(int amount) {
     // On ajoute le param 'amount' à la valeur actuelle
     int updatedValue = currentValueInt + amount;
     //MAJ du texte du compteur avec la nouvelle valeur
-    ui->counter->setPlaceholderText(QString::number(updatedValue));
+    ui->counter->setText(QString::number(updatedValue));
+    // Appliquer la couleur du texte en gris foncé
+    ui->counter->setStyleSheet("color: #333333;");
 }
 
 
@@ -195,5 +198,3 @@ void MainPage::on_listInvoicesPushButton_clicked()
         invoicesListValueInstance->activateWindow();
     }
 }
-
-

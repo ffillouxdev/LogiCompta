@@ -17,9 +17,6 @@
 #include <QLabel>
 
 
-
-
-
 namespace Ui {
 class profilDialog;
 }
@@ -31,6 +28,8 @@ class profilDialog : public QDialog
 public:
     explicit profilDialog(const QString &userName, QWidget *parent = nullptr);
     ~profilDialog();
+    int getUserId(const QString &userName);
+
 signals:
     void logoutRequested();
 
@@ -47,6 +46,7 @@ private slots:
 
 private:
     Ui::profilDialog *ui;
+    QSqlDatabase db;
 };
 
 

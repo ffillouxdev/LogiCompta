@@ -172,7 +172,7 @@
              </property>
              <property name="styleSheet">
               <string notr="true">#counter {
-	color: #000;
+    color: #333333;
 	padding-right : 5px;
 }</string>
              </property>

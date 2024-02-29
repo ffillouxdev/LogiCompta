@@ -2,7 +2,6 @@
 #define ADDVALUEDIALOG_H
 
 
-
 #include <QDialog>
 #include <QSql>
 #include <QMessageBox>
