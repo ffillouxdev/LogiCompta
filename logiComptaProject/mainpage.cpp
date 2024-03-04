@@ -60,7 +60,7 @@ void MainPage::on_ProfilpushButton_clicked()
 {
     if (!profilDialogInstance) {
         // Initialisez profilDialogInstance avec le nom d'utilisateur
-        profilDialogInstance = new profilDialog(m_userName, this);
+        profilDialogInstance = new profilDialog(*this, m_userName, this);
         profilDialogInstance->setAttribute(Qt::WA_DeleteOnClose);
         connect(profilDialogInstance, &profilDialog::logoutRequested, this, &MainPage::logout);
         connect(profilDialogInstance, &QObject::destroyed, this, [=]() { profilDialogInstance = nullptr; });
@@ -159,11 +159,12 @@ void MainPage::setCompteur() {
     }
 }
 
-void MainPage::putNewVal(int amount) {
+void MainPage::putNewVal(double amount) {
     // On récup la valeur actuelle du compteur
-    int currentValueInt = currentValue.toInt();
+    double currentValueDOUBLE = ui->counter->text().toDouble();
+    //    qDebug() << currentValueDOUBLE;
     // On ajoute le param 'amount' à la valeur actuelle
-    int updatedValue = currentValueInt + amount;
+    double updatedValue = currentValueDOUBLE + amount;
     //MAJ du texte du compteur avec la nouvelle valeur
     ui->counter->setText(QString::number(updatedValue));
     // Appliquer la couleur du texte en gris foncé
@@ -197,4 +198,15 @@ void MainPage::on_listInvoicesPushButton_clicked()
         invoicesListValueInstance->raise();
         invoicesListValueInstance->activateWindow();
     }
+}
+
+void MainPage::on_pushButton_clicked()
+{
+    // redirigez les gens vers mon site
+    QDesktopServices::openUrl(QUrl("http://localhost:3000"));
+}
+
+
+void MainPage::Set_AT_Zero(){
+    ui->counter->setText("0.0");
 }

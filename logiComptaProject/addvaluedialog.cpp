@@ -12,6 +12,9 @@ ADDvalueDialog::ADDvalueDialog(MainPage &mainPage, const QString &userName, QWid
     ui->setupUi(this);
     setWindowTitle("Add Values");
 
+    QLocale locale(QLocale::English, QLocale::UnitedStates);
+    ui->amountDoubleSpinBox->setLocale(locale);
+
     // Database
     qDebug() << QSqlDatabase::drivers(); // List of available database drivers
 
@@ -65,12 +68,17 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
     // Récupérer toutes les valeurs pour les entrer dans la BD pour ensuite les trier et les afficher sur le logiciel
     QString date = ui->dateEdit->date().toString("yyyy-MM-dd");
     QString sectionLogiCompta = ui->sectionComboBox->currentText();
-    QString amountStr = ui->amountLineEdit->text(); // Changer le nom pour éviter la confusion avec la variable "amount" dans la BD
+    QString amountStr = ui->amountDoubleSpinBox->text(); // Changer le nom pour éviter la confusion avec la variable "amount" dans la BD
+    amountStr.replace(',', '.');
     double amount = amountStr.toDouble(); // Converti la chaîne en double
     QString name = ui->nameLineEdit->text();
 
+
+
     int id_user = getUserId(nameUser); // On appelle la fonction qui récupère l'id de l'utilisateur actuel
     int id_section = getSectionId(sectionLogiCompta);
+
+    qDebug() << amount;
 
     if (db.open()) {
         QSqlQuery query(db);
@@ -92,9 +100,9 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
             QMessageBox::information(this, "Registration", "Adding the invoice successful.");
             // Réinitialisez les champs de QMessageBox après un enregistrement réussi si nécessaire
             QSqlDatabase::database().commit();
-            mainPageRef.setCompteur();
+            //mainPageRef.setCompteur();
             mainPageRef.putNewVal(amount);
-            ui->amountLineEdit->clear();
+            ui->amountDoubleSpinBox->clear();
             ui->nameLineEdit->clear();
             ui->dateEdit->clear();
             mainPageRef.setCompteur();

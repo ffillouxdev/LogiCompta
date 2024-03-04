@@ -34,7 +34,7 @@ invoicesList::invoicesList(const QString &userName, QWidget *parent) :
         qDebug() << "Failed to retrieve sections from the database";
     }
 
-    query.prepare("SELECT DISTINCT invoices.amount, invoices.name, invoices.date FROM invoices JOIN sections ON invoices.id_user = "
+    query.prepare("SELECT invoices.amount, invoices.name, invoices.date FROM invoices JOIN sections ON invoices.id_user = "
                   "sections.id_user JOIN login_register ON sections.id_user = login_register.id_user WHERE sections.id_user = :user_id"
                   /*"AND invoices.id_section = :section_id"*/);
     query.bindValue(":user_id", user_id);

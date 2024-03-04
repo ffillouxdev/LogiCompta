@@ -16,6 +16,7 @@
 #include <QPushButton>
 #include <QLabel>
 
+class MainPage;
 
 namespace Ui {
 class profilDialog;
@@ -26,7 +27,7 @@ class profilDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit profilDialog(const QString &userName, QWidget *parent = nullptr);
+    explicit profilDialog(MainPage &mainPage, const QString &userName, QWidget *parent = nullptr);
     ~profilDialog();
     int getUserId(const QString &userName);
 
@@ -46,6 +47,7 @@ private slots:
 
 private:
     Ui::profilDialog *ui;
+    MainPage &mainPageRef;
     QSqlDatabase db;
 };
 

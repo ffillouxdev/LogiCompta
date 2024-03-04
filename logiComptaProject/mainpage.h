@@ -15,6 +15,8 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+#include <QDesktopServices>
+#include <QUrl>
 
 #include "profildialog.h"
 #include "addrubriquesdialog.h"
@@ -40,7 +42,8 @@ public:
     void setUserName(const QString &userName);
     void logout();
     void setCompteur();
-    void putNewVal(int amount);
+    void putNewVal(double amount);
+    void Set_AT_Zero();
 
 
 private slots:
@@ -53,6 +56,9 @@ private slots:
     void on_listSectionsPushButton_clicked();
 
     void on_listInvoicesPushButton_clicked();
+
+    void on_pushButton_clicked();
+
 
 private:
     Ui::MainPage *ui;

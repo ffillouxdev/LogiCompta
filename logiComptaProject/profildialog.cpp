@@ -2,9 +2,10 @@
 #include "ui_profildialog.h"
 #include "login.h"
 
-profilDialog::profilDialog(const QString &userName, QWidget *parent) :
+profilDialog::profilDialog(MainPage &mainPage, const QString &userName, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::profilDialog)
+    ui(new Ui::profilDialog),
+    mainPageRef(mainPage)
 {
     ui->setupUi(this);
     setWindowTitle("Profil");
@@ -105,6 +106,7 @@ void profilDialog::on_resetButton_clicked()
             int userId = getUserId(ui->nameLabel->text());
             if (userId != -1)
             {
+                mainPageRef.Set_AT_Zero();
                 query.prepare("DELETE FROM sections WHERE id_user = :user_id AND name_section != :name_section");
                 query.bindValue(":user_id", userId);
                 query.bindValue(":name_section", "divers");
@@ -139,7 +141,6 @@ void profilDialog::on_resetButton_clicked()
                     return;
                 }
             }
-
             QMessageBox::information(this, ui->nameLabel->text(), "All data deleted successfully.");
         }
         db.close();
