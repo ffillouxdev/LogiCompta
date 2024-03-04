@@ -419,11 +419,19 @@ body {
     transition: 0.5s;
 }
 
+@media screen and (min-width: 950px) {
+    main {
+        .sectionPage {
+            height: 100vh;
+        }
+    }
+}
+
 
 @media screen and (min-width: 500px) and (max-height: 820px) {
     main {
         .sectionPage {
-            height: 100vh;
+            height: 110vh;
         }
 
         .Accueil {
@@ -980,6 +988,7 @@ body {
 
 @media (max-width: 950px) and (orientation: landscape) {
     main {
+
         .A-propos {
             height: 220vh;
 
