@@ -66,12 +66,12 @@ void Login::on_loginbutton_clicked()
             }
             if(line < 1){
                 cout << "username and password are not correct.";
-                QMessageBox::warning(this,"ComptaPro","Please Enter Valid Username or Password.");
+                QMessageBox::warning(this,"WARNING","Please Enter Valid Username or Password.");
             }
 
             if(line > 1){
                 cout << "username and password are duplicated.";
-                QMessageBox::warning(this,"ComptaPro","Please Enter Valid Username or Password. those are duplicated");
+                QMessageBox::warning(this,"WARNING","Please Enter Valid Username or Password. those are duplicated");
             }
         }
     }
@@ -82,7 +82,7 @@ void Login::on_loginbutton_clicked()
 void Login::on_cancelbutton_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this,"ComptaPro","Are you sure to close the application ?", QMessageBox::Yes |QMessageBox::No);
+    reply = QMessageBox::question(this,"WARNING","Are you sure to close the application ?", QMessageBox::Yes |QMessageBox::No);
     if(reply == QMessageBox::Yes)
     {
         QApplication::quit();

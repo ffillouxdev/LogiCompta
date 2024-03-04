@@ -73,12 +73,12 @@
    </property>
    <property name="dateTime">
     <datetime>
-     <hour>22</hour>
+     <hour>21</hour>
      <minute>0</minute>
      <second>0</second>
-     <year>2023</year>
+     <year>2024</year>
      <month>12</month>
-     <day>31</day>
+     <day>30</day>
     </datetime>
    </property>
   </widget>
@@ -106,6 +106,9 @@
      <width>201</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="maximum">
+    <double>99999.990000000005239</double>
    </property>
   </widget>
  </widget>

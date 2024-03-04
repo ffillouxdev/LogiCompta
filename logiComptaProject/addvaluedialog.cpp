@@ -30,6 +30,9 @@ ADDvalueDialog::ADDvalueDialog(MainPage &mainPage, const QString &userName, QWid
     // parametre -> variable globale
     nameUser = userName;
 
+    // mettre la date du jour
+    ui->dateEdit->setDate(QDate::currentDate());
+
     // afficher toutes les rubriques de la dans la combobox en comboboxItems
     if (db.open()) {
         QSqlQuery query(db);
