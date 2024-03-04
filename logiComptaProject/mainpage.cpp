@@ -18,7 +18,7 @@ MainPage::MainPage(const QString &userName, QWidget *parent) :
     m_userName = userName;
 
     // Database
-    qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
+    //qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
 
     db=QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/fillo/OneDrive/Documents/PERSONNEL/projet C . C ++/LogiCompta/logiComptaProject/logicomptadb.sqlite");
@@ -109,7 +109,7 @@ int MainPage::getUserId(const QString &userName)
 
         if (query.exec() && query.next()) {
             userId = query.value(0).toInt();
-            qDebug() << "User ID for" << userName << "is" << userId;
+            //qDebug() << "User ID for" << userName << "is" << userId;
         } else {
             qDebug() << "Query failed or no user found for username:" << userName;
         }
