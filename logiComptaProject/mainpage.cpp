@@ -212,3 +212,31 @@ void MainPage::on_pushButton_clicked()
 void MainPage::Set_AT_Zero(){
     ui->counter->setText("0.0");
 }
+
+
+
+void MainPage::closeEvent(QCloseEvent *event) {
+    // Fermez toutes les instances de dialogues actives
+    if (addValueInstance) {
+        addValueInstance->close();
+        addValueInstance = nullptr;
+    }
+    if (profilDialogInstance) {
+        profilDialogInstance->close();
+        profilDialogInstance = nullptr;
+    }
+    if (rubriqueDialog) {
+        rubriqueDialog->close();
+        rubriqueDialog = nullptr;
+    }
+    if (sectionListDialog) {
+        sectionListDialog->close();
+        sectionListDialog = nullptr;
+    }
+    if (invoicesListValueInstance) {
+        invoicesListValueInstance->close();
+        invoicesListValueInstance = nullptr;
+    }
+
+    QMainWindow::closeEvent(event);
+}

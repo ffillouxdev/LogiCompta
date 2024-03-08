@@ -70,6 +70,9 @@ private:
     sectionList *sectionListDialog = nullptr;
     ADDvalueDialog *addValueInstance = nullptr;
     invoicesList *invoicesListValueInstance = nullptr;
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 };
 
 #endif // MAINPAGE_H
