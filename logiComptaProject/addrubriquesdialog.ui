@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>267</width>
-    <height>167</height>
+    <width>224</width>
+    <height>134</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>224</width>
+    <height>134</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>224</width>
+    <height>134</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -19,48 +31,104 @@
 }
 </string>
   </property>
-  <widget class="QPushButton" name="AcceptpushButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>91</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Accept</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="CancelpushButton">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>110</y>
-     <width>91</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="rubriqueLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>40</y>
-     <width>211</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#rubriqueLineEdit{
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="AllFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="rubriqueLineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#rubriqueLineEdit{
 	color: black;
 }
 </string>
-   </property>
-  </widget>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="ButtonsFrame">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="AcceptpushButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>75</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Accept</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="CancelpushButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>75</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Cancel</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

@@ -8,5 +8,8 @@
         <file>rubriques.png</file>
         <file>user.png</file>
         <file>6106991.jpg</file>
+        <file>logo1.ico</file>
+        <file>loadingIcon.png</file>
+        <file>loader.gif</file>
     </qresource>
 </RCC>

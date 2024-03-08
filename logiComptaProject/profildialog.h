@@ -16,6 +16,7 @@
 #include <QPushButton>
 #include <QLabel>
 
+class loading;
 class MainPage;
 
 namespace Ui {

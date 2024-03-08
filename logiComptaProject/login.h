@@ -17,7 +17,10 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+#include <QPropertyAnimation>
+#include <QAbstractAnimation>
 
+#include "loading.h"
 #include "mainpage.h"
 #include "registration.h"
 
@@ -43,6 +46,10 @@ private:
     Ui::Login *ui;
     QSqlDatabase db;
     QString userName;
+
+signals:
+    void closed();
 };
+
 
 #endif // LOGIN_H

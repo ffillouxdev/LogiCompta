@@ -52,9 +52,15 @@ void profilDialog::on_discoButton_clicked()
     if(reply == QMessageBox::Yes)
     {
         emit logoutRequested();
-        this->close();
-        Login *login = new Login();
-        login->show();
+        this->hide();
+        loading *loadingPage = new loading();
+        loadingPage->show();
+        QTimer::singleShot(1000, this, [=]() {
+            Login *login = new Login();
+            login->show();
+        });
+        //https://www.google.com/search?q=loading+blue+animation+gif&tbm=isch&ved=2ahUKEwiRhdn1zuOEAxU9dqQEHSZcD8QQ2-cCegQIABAA&oq=loading+blue+animation+gif&gs_lp=EgNpbWciGmxvYWRpbmcgYmx1ZSBhbmltYXRpb24gZ2lmMgQQIxgnSOkRUJsDWKIQcAB4AJABAJgBXKABpQKqAQE1uAEDyAEA-AEBigILZ3dzLXdpei1pbWeIBgE&sclient=img&ei=jXfqZdGKDL3skdUPpri9oAw&bih=889&biw=1280&rlz=1C1ONGR_frFR1038FR1038#imgrc=7cGjKU3ndSp3JM&imgdii=wTYR77lfcxobnM
+
     }
 }
 

@@ -1,7 +1,6 @@
 #include "login.h"
 #include "ui_login.h"
 
-
 using namespace std;
 
 Login::Login(QWidget *parent):
@@ -57,20 +56,23 @@ void Login::on_loginbutton_clicked()
                 line++;
             }
             if(line == 1){
-                cout << "username and password matched.";
+                 qDebug()  << "username and password matched.";
                 //connect page popup
                 this->hide();
-                MainPage *mainpage = new  MainPage(userName);
-                mainpage->setUserName(userName);
-                mainpage->show();
+                loading *loadingPage = new loading();
+                loadingPage->show();
+                QTimer::singleShot(1000, this, [=]() {
+                    MainPage *mainpage = new MainPage(userName);
+                    mainpage->show();
+                });
             }
             if(line < 1){
-                cout << "username and password are not correct.";
+                 qDebug()  << "username and password are not correct.";
                 QMessageBox::warning(this,"WARNING","Please Enter Valid Username or Password.");
             }
 
             if(line > 1){
-                cout << "username and password are duplicated.";
+                 qDebug()  << "username and password are duplicated.";
                 QMessageBox::warning(this,"WARNING","Please Enter Valid Username or Password. those are duplicated");
             }
         }
@@ -119,7 +121,7 @@ void Login::nb_data_user()
 
 QString Login::sendUsername()
 {
-    cout << "Username : " << userName.toStdString();
+     qDebug()  << "Username : " << userName.toStdString();
     QString userNameInMemory = userName;
     return userNameInMemory;
 }

@@ -13,6 +13,7 @@ SOURCES += \
     addrubriquesdialog.cpp \
     addvaluedialog.cpp \
     invoiceslist.cpp \
+    loading.cpp \
     login.cpp \
     main.cpp \
     mainpage.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     addrubriquesdialog.h \
     addvaluedialog.h \
     invoiceslist.h \
+    loading.h \
     login.h \
     mainpage.h \
     profildialog.h \
@@ -34,6 +36,7 @@ FORMS += \
     addrubriquesdialog.ui \
     addvaluedialog.ui \
     invoiceslist.ui \
+    loading.ui \
     login.ui \
     mainpage.ui \
     profildialog.ui \
@@ -48,4 +51,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     img.qrc
 
-DISTFILES +=
+
+RC_ICONS = logo1.ico

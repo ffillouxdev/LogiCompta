@@ -17,6 +17,8 @@ MainPage::MainPage(const QString &userName, QWidget *parent) :
     qDebug() << userName;
     m_userName = userName;
 
+     connect(this, &MainPage::destroyed, qApp, &QCoreApplication::quit);
+
     // Database
     //qDebug() << QSqlDatabase::drivers(); //List of availables database drivers
 
@@ -203,7 +205,7 @@ void MainPage::on_listInvoicesPushButton_clicked()
 void MainPage::on_pushButton_clicked()
 {
     // redirigez les gens vers mon site
-    QDesktopServices::openUrl(QUrl("http://localhost:3000"));
+    QDesktopServices::openUrl(QUrl("https://ffillouxdev.github.io/logicompta-website/"));
 }
 
 
