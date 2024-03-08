@@ -339,6 +339,7 @@ body {
                             border: none;
                             font-weight: bold;
                             font-size: 16px;
+                            margin-bottom: 10px;
                         }
                     }
                 }
@@ -596,6 +597,11 @@ body {
                             border: none;
                             font-weight: bold;
                             font-size: 16px;
+
+                            &:hover {
+                                background-color: var(--black-color);
+                                transition: 1.3s;
+                            }
                         }
                     }
                 }

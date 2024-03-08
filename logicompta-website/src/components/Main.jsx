@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
+import emailValidator from 'email-validator';
 
 // les img
 import logoLogiCompta from "../assets/logo_logiCompta.png";
@@ -21,6 +23,65 @@ import FeatureBox from "./FeatureBox";
 
 
 export default function Main() {
+    // on recupere les données du formulaire
+    const [formData, setFormData] = useState({
+        name: "",
+        user_email: "",
+        message: "",
+    });
+
+    // Fonction pour vérifier si l'utilisateur a déjà envoyé un message aujourd'hui
+    const checkIfMessageSentToday = () => {
+        const lastSubmissionDate = localStorage.getItem('lastSubmissionDate');
+        const today = new Date().toISOString().split('T')[0]; // Date d'aujourd'hui
+
+        return lastSubmissionDate === today;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+        if (!checkIfMessageSentToday()) {
+            if (formData.name && formData.user_email && formData.message) {
+                if (emailValidator.validate(formData.user_email)) {
+                    emailjs.sendForm("service_9j7fujj", "template_ixooslr", e.target, {
+                        publicKey: 'lvl2wKPxbQgJFF9td',
+                    })
+                        .then((result) => {
+                            console.log(result.text);
+                            alert("Votre message a bien été envoyé");
+                            setFormData({
+                                name: "",
+                                user_email: "",
+                                message: "",
+                            });
+                            // Stocker la date de la dernière soumission
+                            const today = new Date().toISOString().split('T')[0];
+                            localStorage.setItem('lastSubmissionDate', today);
+                        }, (error) => {
+                            console.log(error.text);
+                            alert("Une erreur s'est produite, veuillez réessayer plus tard");
+                        });
+                } else {
+                    alert("Veuillez saisir une adresse e-mail valide");
+                }
+            } else {
+                alert("Veuillez remplir tous les champs du formulaire");
+            }
+        } else {
+            alert("Vous avez déjà envoyé un message aujourd'hui. Veuillez réessayer demain");
+        }
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+
     return (
         <>
             <main>
@@ -88,11 +149,11 @@ export default function Main() {
                         />
                     </div>
                 </div>
-                <div className="Contact sectionPage" id="Contact">
+                <div className="Contact sectionPage">
                     <div className="zesdfdsgf">
-                    <div className="cercle1">
-                        <p>cercle1</p>
-                    </div>
+                        <div className="cercle1" id="Contact">
+                            <p>cercle1</p>
+                        </div>
                         <div className="formulaire-contact">
                             <div className="infos-contact">
                                 <h2>Contact Info</h2>
@@ -115,17 +176,29 @@ export default function Main() {
                                     <img src={FacebookIcon} alt="facebook socialLink" className="icon facebook" />
                                 </div>
                             </div>
-                            <form action="">
-                                <input type="text" placeholder="Entrer votre nom" />
-                                <input type="text" placeholder="Entrer une adresse email" />
-                                <textarea name="" id="" placeholder="Entrer votre message " cols="30" rows="10"></textarea>
-                                <button>ENVOYER</button>
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    placeholder="Entrer votre nom"
+                                />
+                                <input
+                                    type="email"
+                                    name="user_email"
+                                    value={formData.user_email}
+                                    onChange={handleChange}
+                                    placeholder="Entrer votre adresse email"
+                                />
+                                <textarea placeholder="Entrer votre message " cols="30" rows="10" value={formData.message} name="message" onChange={handleChange}></textarea>
+                                <button type="submit">Envoyer</button>
                             </form>
                         </div>
                     </div>
-                        <div className="cercle2">
-                            <p>cercle2</p>
-                        </div>
+                    <div className="cercle2">
+                        <p>cercle2</p>
+                    </div>
                 </div>
             </main >
         </>
