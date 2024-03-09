@@ -192,7 +192,7 @@ void MainPage::on_listSectionsPushButton_clicked()
 void MainPage::on_listInvoicesPushButton_clicked()
 {
     if (!invoicesListValueInstance) {
-        invoicesListValueInstance = new invoicesList(m_userName);
+        invoicesListValueInstance = new invoicesList(*this, m_userName);
         invoicesListValueInstance->setAttribute(Qt::WA_DeleteOnClose);
         connect(invoicesListValueInstance, &QObject::destroyed, this, [=]() {invoicesListValueInstance = nullptr; });
         invoicesListValueInstance->show();
@@ -212,7 +212,6 @@ void MainPage::on_pushButton_clicked()
 void MainPage::Set_AT_Zero(){
     ui->counter->setText("0.0");
 }
-
 
 
 void MainPage::closeEvent(QCloseEvent *event) {

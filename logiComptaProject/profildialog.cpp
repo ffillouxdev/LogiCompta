@@ -5,6 +5,7 @@
 profilDialog::profilDialog(MainPage &mainPage, const QString &userName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::profilDialog),
+    changeInfosDialogInstance(nullptr),
     mainPageRef(mainPage)
 {
     ui->setupUi(this);
@@ -37,14 +38,6 @@ void profilDialog::on_cancelButton_clicked()
     this->close();
 }
 
-
-void profilDialog::on_makeChangeButton_clicked()
-{
-    // the button change all the user informations who have been change
-    this->close();
-}
-
-
 void profilDialog::on_discoButton_clicked()
 {
     QMessageBox::StandardButton reply;
@@ -52,17 +45,18 @@ void profilDialog::on_discoButton_clicked()
     if(reply == QMessageBox::Yes)
     {
         emit logoutRequested();
-        this->hide();
+        this->close();
         loading *loadingPage = new loading();
         loadingPage->show();
-        QTimer::singleShot(1000, this, [=]() {
-            Login *login = new Login();
-            login->show();
-        });
-        //https://www.google.com/search?q=loading+blue+animation+gif&tbm=isch&ved=2ahUKEwiRhdn1zuOEAxU9dqQEHSZcD8QQ2-cCegQIABAA&oq=loading+blue+animation+gif&gs_lp=EgNpbWciGmxvYWRpbmcgYmx1ZSBhbmltYXRpb24gZ2lmMgQQIxgnSOkRUJsDWKIQcAB4AJABAJgBXKABpQKqAQE1uAEDyAEA-AEBigILZ3dzLXdpei1pbWeIBgE&sclient=img&ei=jXfqZdGKDL3skdUPpri9oAw&bih=889&biw=1280&rlz=1C1ONGR_frFR1038FR1038#imgrc=7cGjKU3ndSp3JM&imgdii=wTYR77lfcxobnM
 
+        QTimer::singleShot(3000, this, [=]() {
+
+            Login *loginPage = new Login();
+            loginPage->show();
+        });
     }
 }
+
 
 
 int profilDialog::getUserId(const QString &userName)
@@ -131,7 +125,7 @@ void profilDialog::on_resetButton_clicked()
                 return;
             }
 
-            query.prepare("UPDATE sqlite_sequence SET seq = (SELECT COALESCE(MAX(id), 0) FROM invoices) WHERE name = 'invoices'");
+            query.prepare("UPDATE sqlite_sequence SET seq = 1 WHERE name = 'invoices'");
             if (!query.exec())
             {
                 qDebug() << "Failed to reset increment for invoices:" << query.lastError().text();
@@ -140,7 +134,7 @@ void profilDialog::on_resetButton_clicked()
 
             if (userId != -1)
             {
-                query.prepare("UPDATE sqlite_sequence SET seq = (SELECT COALESCE(MAX(id_section), 0) FROM sections) WHERE name = 'sections'");
+                query.prepare("UPDATE sqlite_sequence SET seq = 1 WHERE name = 'sections'");
                 if (!query.exec())
                 {
                     qDebug() << "Failed to reset increment for sections:" << query.lastError().text();
@@ -156,7 +150,16 @@ void profilDialog::on_resetButton_clicked()
 
 void profilDialog::on_changeInfoButton_clicked()
 {
-
+    if (!changeInfosDialogInstance) {
+        changeInfosDialogInstance = new changeInformationsDialog();
+        changeInfosDialogInstance->setAttribute(Qt::WA_DeleteOnClose);
+        connect(changeInfosDialogInstance, &QObject::destroyed, this, [=]() {
+            changeInfosDialogInstance = nullptr;
+        });
+        changeInfosDialogInstance->show();
+    } else {
+        changeInfosDialogInstance->raise();
+        changeInfosDialogInstance->activateWindow();
+    }
 }
-
 

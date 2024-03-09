@@ -15,9 +15,12 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+#include "changeinformationsdialog.h"
+
 
 class loading;
 class MainPage;
+class Login;
 
 namespace Ui {
 class profilDialog;
@@ -38,8 +41,6 @@ signals:
 private slots:
     void on_cancelButton_clicked();
 
-    void on_makeChangeButton_clicked();
-
     void on_discoButton_clicked();
 
     void on_resetButton_clicked();
@@ -50,6 +51,7 @@ private:
     Ui::profilDialog *ui;
     MainPage &mainPageRef;
     QSqlDatabase db;
+    changeInformationsDialog *changeInfosDialogInstance;
 };
 
 

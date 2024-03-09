@@ -34,6 +34,23 @@
        <height>500</height>
       </size>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {
+    background-color: #ffffff; /* Couleur de fond */
+    alternate-background-color: #f0f0f0; /* Couleur de fond alternative pour les lignes impaires */
+    border: 1px solid #cccccc; /* Bordure */
+}
+
+QTableWidget::item {
+    padding: 5px; /* Espacement interne des cellules */
+}
+
+QTableWidget::item:selected {
+    background-color: #a8a8a8; /* Couleur de fond de la cellule sélectionnée */
+    color: #ffffff; /* Couleur du texte de la cellule sélectionnée */
+}
+</string>
+     </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>145</number>
      </attribute>

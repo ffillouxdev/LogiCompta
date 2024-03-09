@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     addrubriquesdialog.cpp \
     addvaluedialog.cpp \
+    changeinformationsdialog.cpp \
     invoiceslist.cpp \
     loading.cpp \
     login.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 HEADERS += \
     addrubriquesdialog.h \
     addvaluedialog.h \
+    changeinformationsdialog.h \
     invoiceslist.h \
     loading.h \
     login.h \
@@ -35,6 +37,7 @@ HEADERS += \
 FORMS += \
     addrubriquesdialog.ui \
     addvaluedialog.ui \
+    changeinformationsdialog.ui \
     invoiceslist.ui \
     loading.ui \
     login.ui \
