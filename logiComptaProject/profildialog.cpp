@@ -2,6 +2,8 @@
 #include "ui_profildialog.h"
 #include "login.h"
 
+// faire le systeme de changement d'informations
+
 profilDialog::profilDialog(MainPage &mainPage, const QString &userName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::profilDialog),

@@ -3,6 +3,8 @@
 
 using namespace std;
 
+// encodage des MDP a faire, complexifié les conditions de MDP dans register, 'MDP oublié'->email
+
 Login::Login(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::Login)

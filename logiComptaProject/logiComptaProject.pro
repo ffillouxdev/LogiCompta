@@ -18,6 +18,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainpage.cpp \
+    orderdialog.cpp \
     profildialog.cpp \
     registration.cpp \
     sectionlist.cpp
@@ -30,6 +31,7 @@ HEADERS += \
     loading.h \
     login.h \
     mainpage.h \
+    orderdialog.h \
     profildialog.h \
     registration.h \
     sectionlist.h
@@ -42,6 +44,7 @@ FORMS += \
     loading.ui \
     login.ui \
     mainpage.ui \
+    orderdialog.ui \
     profildialog.ui \
     registration.ui \
     sectionlist.ui

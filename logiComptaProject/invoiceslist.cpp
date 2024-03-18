@@ -2,6 +2,8 @@
 #include "ui_invoiceslist.h"
 #include "addvaluedialog.h"
 
+// supprimer donnée(s), modifier donnée(s) dans les tableWigetsItems
+
 invoicesList::invoicesList(MainPage &mainPage, const QString &userName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::invoicesList),
