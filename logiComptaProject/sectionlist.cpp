@@ -18,6 +18,8 @@ sectionList::sectionList(MainPage &mainPage, const QString &userName, QWidget *p
         return;
     }
 
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
     QSqlQueryModel *modal = new QSqlQueryModel();
     QSqlQuery *qry = new QSqlQuery(db);
     int user_id = getUserId(userName);

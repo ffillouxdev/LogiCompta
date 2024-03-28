@@ -17,6 +17,7 @@
 #include "orderdialog.h"
 
 class ADDvalueDialog;
+class deleteSelectedRowsDialog;
 class MainPage;
 
 namespace Ui {
@@ -34,13 +35,17 @@ public:
     int getSectionId(const QString &section);
     void updateTable(int index);
     void OrderTableUpdate(int choice);
+    void deleteSelectedRowsFromDatabase();
+
+signals:
+    void dialogClosed();
 
 private slots:
     void on_AddValueButton_clicked();
     void on_ActualSectionComboBox_currentIndexChanged(int index);
-
     void on_OrderByValueButton_clicked();
     void OrderTable();
+    void on_DeleteValueButton_clicked();
 
 private:
     Ui::invoicesList *ui;
@@ -52,6 +57,8 @@ private:
     void loadSections(const QString &userName);
     void updateTable(int userId, const QString &defaultSectionName);
     orderDialog *dialogOrderInstance = nullptr;
+    deleteSelectedRowsDialog *deleteRowsDialogInstance = nullptr;
 };
+
 
 #endif // INVOICESLIST_H

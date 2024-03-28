@@ -13,6 +13,7 @@ SOURCES += \
     addrubriquesdialog.cpp \
     addvaluedialog.cpp \
     changeinformationsdialog.cpp \
+    deleteselectedrowsdialog.cpp \
     invoiceslist.cpp \
     loading.cpp \
     login.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     addrubriquesdialog.h \
     addvaluedialog.h \
     changeinformationsdialog.h \
+    deleteselectedrowsdialog.h \
     invoiceslist.h \
     loading.h \
     login.h \
@@ -40,6 +42,7 @@ FORMS += \
     addrubriquesdialog.ui \
     addvaluedialog.ui \
     changeinformationsdialog.ui \
+    deleteselectedrowsdialog.ui \
     invoiceslist.ui \
     loading.ui \
     login.ui \

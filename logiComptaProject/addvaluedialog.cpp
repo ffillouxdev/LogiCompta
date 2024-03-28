@@ -76,8 +76,6 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
     double amount = amountStr.toDouble(); // Converti la chaîne en double
     QString name = ui->nameLineEdit->text();
 
-
-
     int id_user = getUserId(nameUser); // On appelle la fonction qui récupère l'id de l'utilisateur actuel
     int id_section = getSectionId(sectionLogiCompta);
 
@@ -94,16 +92,35 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
         query.bindValue(":date", date);
         query.bindValue(":id_section", id_section);
 
-
-        // Afficher les valeurs dans la console
-        qDebug() << id_user << amount << name << date << id_section;
-
+        // Exécutez la requête
         if (query.exec()) {
+            // Récupérer le dernier identifiant inséré
+            QSqlQuery lastIdQuery("SELECT last_insert_rowid()", db);
+            if (lastIdQuery.next()) {
+                int lastInsertedId = lastIdQuery.value(0).toInt();
+
+                // Récupérer le nombre total de lignes dans la table
+                QSqlQuery countQuery("SELECT COUNT(*) FROM invoices", db);
+                if (countQuery.next()) {
+                    int rowCount = countQuery.value(0).toInt();
+
+                    // Mettre à jour les identifiants pour toutes les lignes après le dernier inséré
+                    QSqlQuery updateQuery(db);
+                    updateQuery.prepare("UPDATE invoices SET id_invoices = id_invoices + 1 WHERE id_invoices > :lastInsertedId AND id_invoices <= :rowCount");
+                    updateQuery.bindValue(":lastInsertedId", lastInsertedId);
+                    updateQuery.bindValue(":rowCount", rowCount);
+                    if (!updateQuery.exec()) {
+                        qDebug() << "Error updating invoice IDs:" << updateQuery.lastError().text();
+                    }
+                }
+            }
+
+            // Afficher les valeurs dans la console
+            qDebug() << id_user << amount << name << date << id_section;
+
             // Enregistrement réussi
             QMessageBox::information(this, "Registration", "Adding the invoice successful.");
-            // Réinitialisez les champs de QMessageBox après un enregistrement réussi si nécessaire
             QSqlDatabase::database().commit();
-            //mainPageRef.setCompteur();
             mainPageRef.putNewVal(amount);
             ui->amountDoubleSpinBox->clear();
             ui->nameLineEdit->clear();
@@ -121,6 +138,8 @@ void ADDvalueDialog::on_acceptPushButton_clicked()
         QMessageBox::critical(this, "Error", "Failed to connect to the database.");
     }
 }
+
+
 
 
 int ADDvalueDialog::getUserId(const QString &userName)

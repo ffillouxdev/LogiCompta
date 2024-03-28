@@ -1,14 +1,13 @@
 #include "invoiceslist.h"
 #include "ui_invoiceslist.h"
 #include "addvaluedialog.h"
+#include "deleteselectedrowsdialog.h"
 
-// supprimer donnée(s), modifier donnée(s) dans les tableWigetsItems
 
 invoicesList::invoicesList(MainPage &mainPage, const QString &userName, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::invoicesList),
     mainPageRef(mainPage),
-    addValueDialogInstance(nullptr),
     nameUser(userName)
 {
     ui->setupUi(this);
@@ -25,6 +24,7 @@ invoicesList::invoicesList(MainPage &mainPage, const QString &userName, QWidget 
     db.close();
 
     connect(ui->ActualSectionComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &invoicesList::on_ActualSectionComboBox_currentIndexChanged);
+    ui->InvoicesTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     int userId = getUserId(nameUser);
     updateTable(userId, "divers");
@@ -33,6 +33,7 @@ invoicesList::invoicesList(MainPage &mainPage, const QString &userName, QWidget 
 invoicesList::~invoicesList()
 {
     delete ui;
+    emit dialogClosed();
 }
 
 int invoicesList::getUserId(const QString &userName)
@@ -54,7 +55,7 @@ int invoicesList::getUserId(const QString &userName)
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }
 
-    qDebug() << "User ID for" << userName << "is" << userId;
+    //qDebug() << "User ID for" << userName << "is" << userId;
     return userId;
 }
 
@@ -77,7 +78,7 @@ int invoicesList::getSectionId(const QString &section)
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }
 
-    qDebug() << "Section ID for" << section << "is" << sectionId;
+    //qDebug() << "Section ID for" << section << "is" << sectionId;
     return sectionId;
 }
 
@@ -192,34 +193,32 @@ void invoicesList::on_OrderByValueButton_clicked()
 
 }
 
-void invoicesList::OrderTableUpdate(int choice){
+void invoicesList::OrderTableUpdate(int choice) {
     QSqlQueryModel *modal = new QSqlQueryModel();
-    QSqlQuery query(db);
     int userId = getUserId(nameUser);
     QString actualSectionName = ui->ActualSectionComboBox->currentText();
-    qDebug() << "dsfghjkljhgfdsq";
-    if (choice == 1){
-        query.prepare("SELECT invoices.amount, invoices.name, invoices.date, sections.name_section "
-                      "FROM invoices "
-                      "JOIN sections ON invoices.id_section = sections.id_section "
-                      "JOIN login_register ON sections.id_user = login_register.id_user "
-                      "WHERE sections.id_user = :user_id AND sections.name_section = :name_section"
-                      "ORDER invoices.amount BY ASC");
-    }else if(choice == 2) {
-        query.prepare("SELECT invoices.amount, invoices.name, invoices.date, sections.name_section "
-                      "FROM invoices "
-                      "JOIN sections ON invoices.id_section = sections.id_section "
-                      "JOIN login_register ON sections.id_user = login_register.id_user "
-                      "WHERE sections.id_user = :user_id AND sections.name_section = :name_section"
-                      "ORDER invoices.amount BY DESC");
-    }else {
-        return ;
+
+    QString orderDirection;
+    if (choice == 1) {
+        orderDirection = "ASC";
+    } else if (choice == 2) {
+        orderDirection = "DESC";
     }
+
+    //qDebug() << orderDirection;
+
+    QSqlQuery query(db);
+    query.prepare("SELECT invoices.amount, invoices.name, invoices.date, sections.name_section "
+                  "FROM invoices "
+                  "JOIN sections ON invoices.id_section = sections.id_section "
+                  "JOIN login_register ON sections.id_user = login_register.id_user "
+                  "WHERE sections.id_user = :user_id AND sections.name_section = :name_section "
+                  "ORDER BY invoices.amount " + orderDirection);
 
     query.bindValue(":user_id", userId);
     query.bindValue(":name_section", actualSectionName);
     if (query.exec()) {
-        modal->setQuery(std::move(query));
+        modal->setQuery(query);
 
         int rows = modal->rowCount();
         int columns = modal->columnCount();
@@ -241,5 +240,74 @@ void invoicesList::OrderTableUpdate(int choice){
     } else {
         qDebug() << "Query failed:" << query.lastError().text();
         db.close();
+    }
+}
+
+
+void invoicesList::deleteSelectedRowsFromDatabase() {
+    QList<QTableWidgetSelectionRange> selectedRanges = ui->InvoicesTableWidget->selectedRanges();
+    if (selectedRanges.isEmpty()) {
+        qDebug() << "No selected items in the table widget.";
+        return;
+    }
+
+    foreach(const QTableWidgetSelectionRange &range, selectedRanges) {
+        for (int row = range.bottomRow(); row >= range.topRow(); --row) {
+            QString itemName = ui->InvoicesTableWidget->item(row, 1)->text();
+            QString sectionName = ui->InvoicesTableWidget->item(row, 3)->text();
+            QString dateString = ui->InvoicesTableWidget->item(row, 2)->text();
+            qDebug() << "Deleting item: " << itemName << ", Section: " << sectionName << ", Date: " << dateString;
+
+            int userId = getUserId(nameUser);
+            int sectionId = getSectionId(sectionName);
+
+            QSqlQuery query(db);
+            query.prepare("DELETE FROM invoices WHERE name = :itemName AND id_section = :sectionId AND date = :dateString");
+            query.bindValue(":itemName", itemName);
+            query.bindValue(":sectionId", sectionId);
+            query.bindValue(":dateString", dateString);
+
+            if(query.exec()) {
+                ui->InvoicesTableWidget->removeRow(row);
+
+                for (int i = row + 1; i < ui->InvoicesTableWidget->rowCount(); ++i) {
+                    QString nextItemName = ui->InvoicesTableWidget->item(i, 1)->text();
+                    QString nextSectionName = ui->InvoicesTableWidget->item(i, 3)->text();
+                    QString nextDateString = ui->InvoicesTableWidget->item(i, 2)->text();
+
+                    int nextSectionId = getSectionId(nextSectionName);
+
+                    QSqlQuery updateQuery(db);
+                    updateQuery.prepare("UPDATE invoices SET id_section = :sectionId WHERE name = :itemName AND date = :dateString");
+                    updateQuery.bindValue(":sectionId", nextSectionId);
+                    updateQuery.bindValue(":itemName", nextItemName);
+                    updateQuery.bindValue(":dateString", nextDateString);
+                    if (!updateQuery.exec()) {
+                        qDebug() << "Error updating ID for item:" << nextItemName << ", Section: " << nextSectionName << ", Date: " << nextDateString;
+                    }
+                }
+            } else {
+                qDebug() << "Error deleting item:" << query.lastError().text();
+            }
+        }
+    }
+}
+
+
+
+void invoicesList::on_DeleteValueButton_clicked()
+{
+    if (!ui->InvoicesTableWidget->selectedItems().isEmpty()) {
+        if (!deleteRowsDialogInstance) {
+            deleteRowsDialogInstance = new deleteSelectedRowsDialog(*this);
+            deleteRowsDialogInstance->setAttribute(Qt::WA_DeleteOnClose);
+            connect(deleteRowsDialogInstance, &QObject::destroyed, this, [=]() { deleteRowsDialogInstance = nullptr; });
+            deleteRowsDialogInstance->show();
+        } else {
+            deleteRowsDialogInstance->raise();
+            deleteRowsDialogInstance->activateWindow();
+        }
+    } else {
+        QMessageBox::information(this, "No Items Selected", "No items are selected for deletion.");
     }
 }

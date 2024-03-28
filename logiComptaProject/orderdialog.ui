@@ -24,7 +24,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="OrdercomboBox">
         <item>
          <property name="text">
           <string>Trier par ordre Croissant</string>
@@ -33,11 +33,6 @@
         <item>
          <property name="text">
           <string>Trier par ordre Décroissant</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string/>
          </property>
         </item>
        </widget>

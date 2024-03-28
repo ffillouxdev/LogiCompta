@@ -17,6 +17,9 @@ public:
     explicit orderDialog(invoicesList &listInvoice, QWidget *parent = nullptr);
     ~orderDialog();
 
+public slots:
+    void closeDialog();
+
 private slots:
 
     void on_okButton_clicked();

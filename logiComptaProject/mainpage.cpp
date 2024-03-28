@@ -122,7 +122,7 @@ int MainPage::getUserId(const QString &userName)
         qDebug() << "Failed to open database connection: " << db.lastError().text();
     }
 
-    qDebug() << "User ID for" << userName << "is" << userId;
+    //qDebug() << "User ID for" << userName << "is" << userId;
     return userId;
 }
 
