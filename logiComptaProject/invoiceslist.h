@@ -14,6 +14,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+#include "orderdialog.h"
 
 class ADDvalueDialog;
 class MainPage;
@@ -32,10 +33,14 @@ public:
     int getUserId(const QString &userName);
     int getSectionId(const QString &section);
     void updateTable(int index);
+    void OrderTableUpdate(int choice);
 
 private slots:
     void on_AddValueButton_clicked();
     void on_ActualSectionComboBox_currentIndexChanged(int index);
+
+    void on_OrderByValueButton_clicked();
+    void OrderTable();
 
 private:
     Ui::invoicesList *ui;
@@ -46,6 +51,7 @@ private:
     ADDvalueDialog *addValueDialogInstance;
     void loadSections(const QString &userName);
     void updateTable(int userId, const QString &defaultSectionName);
+    orderDialog *dialogOrderInstance = nullptr;
 };
 
 #endif // INVOICESLIST_H
