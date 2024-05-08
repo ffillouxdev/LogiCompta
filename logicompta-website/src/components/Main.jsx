@@ -44,8 +44,8 @@ export default function Main() {
         if (!checkIfMessageSentToday()) {
             if (formData.name && formData.user_email && formData.message) {
                 if (emailValidator.validate(formData.user_email)) {
-                    emailjs.sendForm("service_9j7fujj", "template_ixooslr", e.target, {
-                        publicKey: 'lvl2wKPxbQgJFF9td',
+                    emailjs.sendForm("yourKey", "template_ixooslr", e.target, {
+                        publicKey: 'yourPublicKey',
                     })
                         .then((result) => {
                             console.log(result.text);
